@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+/*
+Theme Name: We Go Places
+Text Domain: wegoplaces
+Version: 1.0.0
+Description: Custom WordPress theme for a client website called We Go Places by Beatriz Saiani
+Author: Farias Maiquita
+Author URI: https://fariaslab.com/
+*/
+
+// Abstracts
+@import
+  'abstracts/variables',
+  'abstracts/mixins';
+
+// Vendors
+
+// Base
+@import
+  'base/reset',
+  'base/base';
+
+// Layout
+@import
+  'layout/header',
+  'layout/footer';
+
+// Components
