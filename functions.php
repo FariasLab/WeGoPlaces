@@ -55,8 +55,7 @@ add_action( 'after_setup_theme', function() {
     // add_image_size( 'o_fullscreen', 1980, 9999 );
 
     add_theme_support(
-        'html5',
-        [
+        'html5', [
             'search-form',
             'comment-form',
             'comment-list',
@@ -102,7 +101,8 @@ add_action( 'wp_enqueue_scripts', function () {
 add_action( 'init', function () {
     register_nav_menus([
         'header' => __('Header Menu', 'wgp'),
-        'footer' => __('Footer Menu', 'wgp')
+        'footer' => __('Footer Menu', 'wgp'),
+        'lang_switcher' => __('Language Switcher Menu', 'wgp')
     ]);
 });
 
