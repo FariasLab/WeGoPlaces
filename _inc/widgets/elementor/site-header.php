@@ -49,9 +49,39 @@ class WGP_Site_Header extends \Elementor\Widget_Base {
 
     protected function render() { ?>
 
-        <header class="wgp-site-header">
-            Header stuff will go here
-        </header>
+        <section class="wgp-site-header">
+            <div class="inner-wrap">
+                <div class="logo-wrap">
+                    <a href="<?php echo home_url(); ?>" class="logo-link">
+                        <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/logo-wgp-header.png" class="logo-img"/>
+                    </a>
+                </div>
+                <nav class="nav-wrap">
+                    <div class="top-wrap">
+                        <p class="phone-number-wrap">
+                            <span class="country-code">+351</span>
+                            <span class="phone-number">967 763 522</span>
+                        </p>
+                        <a href="#" class="social-link whatsapp">w</a>
+                        <a href="#" class="social-link skype">s</a>
+                        <a href="#" class="social-link instagram">i</a>
+                        <a href="#" class="social-link facebook">f</a>
+                        <?php wp_nav_menu([
+                            'menu_class' => 'lang-switcher',
+                            'container' => '',
+                            'depth' => 1,
+                            'theme_location' => 'lang_switcher'
+                        ]); ?>
+                    </div>
+                    <?php wp_nav_menu([
+                        'menu_class' => 'header-menu',
+                        'container' => '',
+                        'depth' => 1,
+                        'theme_location' => 'header'
+                    ]); ?>
+                </nav>
+            </div>
+        </section>
 
     <?php }
 }
