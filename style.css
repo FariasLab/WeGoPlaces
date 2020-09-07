@@ -109,6 +109,29 @@ fieldset {
   display: none !important;
 }
 
+@font-face {
+  font-family: "Gilroy";
+  src: url("_inc/assets/fonts/Gilroy-Light.woff2") format("woff2"), url("_inc/assets/fonts/Gilroy-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gilroy";
+  src: url("_inc/assets/fonts/Gilroy-ExtraBold.woff2") format("woff2"), url("_inc/assets/fonts/Gilroy-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+body {
+  font-family: "Gilroy", sans-serif;
+}
+
+a, a:link, a:visited {
+  color: inherit;
+  cursor: pointer;
+}
+
 .site-wrap {
   min-width: 320px;
 }
@@ -128,6 +151,26 @@ section > .inner-wrap {
 }
 .wgp-site-header > .inner-wrap > * {
   padding: 24px 0;
+}
+.wgp-site-header .logo-img {
+  display: block;
+  width: 341px;
+}
+.wgp-site-header .nav-wrap {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.wgp-site-header .top-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+.wgp-site-header .lang-switcher {
+  display: flex;
+}
+.wgp-site-header .header-menu {
+  display: flex;
+  justify-content: flex-end;
 }
 
 /*# sourceMappingURL=style.css.map */
