@@ -1,9 +1,11 @@
 // Site Wide Mixins
 
-@mixin flex-align($justify-content: center, $align-items: center)
+@mixin flex-align($justify-content: null, $align-items: null)
   display: flex
-  justify-content: $justify-content
-  align-items: $align-items
+  @if $justify-content
+    justify-content: $justify-content
+  @if $align-items
+    align-items: $align-items
 
 @mixin content-block($content: '')
   display: block

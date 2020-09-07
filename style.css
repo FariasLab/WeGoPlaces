@@ -109,4 +109,25 @@ fieldset {
   display: none !important;
 }
 
+.site-wrap {
+  min-width: 320px;
+}
+
+section > .inner-wrap {
+  width: 1240px;
+  padding: 0 80px;
+  margin: 0 auto;
+}
+
+.wgp-site-header {
+  background: #F6F4EF;
+}
+.wgp-site-header > .inner-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.wgp-site-header > .inner-wrap > * {
+  padding: 24px 0;
+}
+
 /*# sourceMappingURL=style.css.map */
