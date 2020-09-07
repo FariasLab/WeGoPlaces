@@ -15,7 +15,7 @@ Redux::set_args( $opt_name, [
 
 Redux::set_section( $opt_name, array(
     'title'  => esc_html__( 'Header & Footer', 'wgp' ),
-    'desc'  => esc_html__( 'Edit content from the header and footer in one place here.', 'wgp' ),
+    'desc'  => esc_html__( 'Edit common content from the header and footer in one place here.', 'wgp' ),
     'id'     => 'header_footer',
     'fields' => [
         [
