@@ -58,23 +58,30 @@ class WGP_Site_Header extends \Elementor\Widget_Base {
                 </div>
                 <nav class="nav-wrap">
                     <div class="top-wrap">
-                        <p class="phone-number-wrap">
-                            <span class="country-code">+351</span>
-                            <span class="phone-number">967 763 522</span>
-                        </p>
-                        <a href="#" class="social-link whatsapp">w</a>
-                        <a href="#" class="social-link skype">s</a>
-                        <a href="#" class="social-link instagram">i</a>
-                        <a href="#" class="social-link facebook">f</a>
+                        <a href="tel:+351967763522" class="phone-number-link">
+                            <span class="country-code">+351 </span><span class="phone-number">967 763 522</span>
+                        </a>
+                        <a href="#" class="hf-icon whatsapp">
+                            <svg><use xlink:href="#whatsapp-icon"></svg>
+                        </a>
+                        <a href="#" class="hf-icon skype">
+                            <svg><use xlink:href="#skype-icon"></svg>
+                        </a>
+                        <a href="#" class="hf-icon instagram">
+                            <svg><use xlink:href="#instagram-icon"></svg>
+                        </a>
+                        <a href="#" class="hf-icon facebook">
+                            <svg><use xlink:href="#facebook-icon"></svg>
+                        </a>
                         <?php wp_nav_menu([
-                            'menu_class' => 'lang-switcher',
+                            'menu_class' => 'menu lang-switcher',
                             'container' => '',
                             'depth' => 1,
                             'theme_location' => 'lang_switcher'
                         ]); ?>
                     </div>
                     <?php wp_nav_menu([
-                        'menu_class' => 'header-menu',
+                        'menu_class' => 'menu header-menu',
                         'container' => '',
                         'depth' => 1,
                         'theme_location' => 'header'
