@@ -125,6 +125,7 @@ fieldset {
 }
 body {
   font-family: "Gilroy", sans-serif;
+  color: #4D4D4D;
 }
 
 a, a:link, a:visited {
@@ -144,6 +145,9 @@ section > .inner-wrap {
 
 .wgp-site-header {
   background: #F6F4EF;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 .wgp-site-header > .inner-wrap {
   display: flex;
@@ -158,19 +162,77 @@ section > .inner-wrap {
 }
 .wgp-site-header .nav-wrap {
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
+  padding-top: 38px;
 }
 .wgp-site-header .top-wrap {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 32px;
 }
-.wgp-site-header .lang-switcher {
+.wgp-site-header .phone-number-link {
+  margin-right: 38px;
+  font-size: 24px;
+  line-height: 29px;
+}
+.wgp-site-header .country-code {
+  font-size: 14px;
+  line-height: 17px;
+}
+.wgp-site-header .phone-number {
+  letter-spacing: 2px;
+}
+.wgp-site-header .hf-icon.skype, .wgp-site-header .hf-icon.facebook {
+  margin-right: 80px;
+}
+.wgp-site-header .menu {
   display: flex;
+  border-bottom: 1px solid #E0DED8;
+}
+.wgp-site-header .menu li a {
+  display: block;
+  color: #00c2b4;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+  transition: border-color 0.15s;
+}
+.wgp-site-header .menu li a:hover, .wgp-site-header .menu li a:active {
+  border-color: #00c2b4;
+}
+.wgp-site-header .menu li:first-child a {
+  border-color: #00c2b4;
+  color: #9C9B98;
+}
+.wgp-site-header .lang-switcher li:first-child {
+  margin-right: 15px;
+}
+.wgp-site-header .lang-switcher li a {
+  font-size: 12px;
+  line-height: 14px;
+  padding-bottom: 13px;
 }
 .wgp-site-header .header-menu {
-  display: flex;
   justify-content: flex-end;
+  border-bottom: 1px solid #E0DED8;
+}
+.wgp-site-header .header-menu li:not(:last-child) {
+  margin-right: 32px;
+}
+.wgp-site-header .header-menu li a {
+  font-size: 14px;
+  line-height: 17px;
+  padding-bottom: 4px;
+}
+
+.hf-icon {
+  margin-right: 14px;
+}
+.hf-icon svg {
+  display: block;
+  width: 24px;
+  height: 24px;
+  fill: #00c2b4;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,11 +1,13 @@
 // WGP Site Header
 
 .wgp-site-header
-  background: $light-grey
+  background: $wgp-grey-bg
+  font-weight: 800
+  text-transform: uppercase
+  letter-spacing: 1px
 
   > .inner-wrap
     @include flex-align(space-between)
-
     > *
       padding: 24px 0
 
@@ -14,13 +16,60 @@
     width: 341px
 
   .nav-wrap
-    @include flex-align(space-between)
+    display: flex
     flex-direction: column
+    padding-top: 38px
 
   .top-wrap
-    @include flex-align(flex-end)
+    @include flex-align(flex-end, center)
+    margin-bottom: 32px
 
-  .lang-switcher
-    @include flex-align()
+  .phone-number-link
+    margin-right: 38px
+    font-size: 24px
+    line-height: 29px
+
+  .country-code
+    font-size: 14px
+    line-height: 17px
+
+  .phone-number
+    letter-spacing: 2px
+
+  .hf-icon.skype, .hf-icon.facebook
+    margin-right: 80px
+
+  .menu
+    display: flex
+    border-bottom: 1px solid $wgp-grey-border
+    li
+      a
+        display: block
+        color: $wgp-green
+        border-bottom: 1px solid transparent
+        margin-bottom: -1px
+        transition: border-color .15s
+        &:hover, &:active
+          border-color: $wgp-green
+      &:first-child a
+        border-color: $wgp-green
+        color: $wgp-light-grey
+
+  .lang-switcher li
+    &:first-child
+      margin-right: 15px
+    a
+      font-size: 12px
+      line-height: 14px
+      padding-bottom: 13px
+
   .header-menu
-    @include flex-align(flex-end)
+    justify-content: flex-end
+    border-bottom: 1px solid $wgp-grey-border
+    li
+      &:not(:last-child)
+        margin-right: 32px
+      a
+        font-size: 14px
+        line-height: 17px
+        padding-bottom: 4px
