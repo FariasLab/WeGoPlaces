@@ -11,6 +11,12 @@
   display: block
   content: $content
 
+@mixin desktop-side-padding($top-bottom: null)
+  @if $top-bottom
+    padding: $top-bottom 80px
+  @else
+    padding: 0 80px
+
 @mixin mobile-side-padding($top-bottom: null)
   @if $top-bottom
     padding: $top-bottom calc(100% * 20 / 375)
