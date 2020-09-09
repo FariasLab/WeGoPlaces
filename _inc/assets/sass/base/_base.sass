@@ -8,10 +8,22 @@ a, a:link, a:visited
   color: inherit
   cursor: pointer
 
+img, svg
+  display: block
+  height: auto
+
 .site-wrap
   min-width: 320px
 
 section > .inner-wrap
-  width: 1240px
+  width: 100%
+  max-width: 1240px
   padding: 0 80px
   margin: 0 auto
+
+.site-main
+  min-height: 2000px // temp to help test header collapse animation
+
+@media only screen and (max-width: 1239px)
+  section > .inner-wrap
+    @include mobile-side-padding
