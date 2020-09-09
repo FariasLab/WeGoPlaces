@@ -10,3 +10,9 @@
 @mixin content-block($content: '')
   display: block
   content: $content
+
+@mixin mobile-side-padding($top-bottom: null)
+  @if $top-bottom
+    padding: $top-bottom calc(100% * 20 / 375)
+  @else
+    padding: 0 calc(100% * 20 / 375)
