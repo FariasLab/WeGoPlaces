@@ -23,10 +23,11 @@ Author URI: https://fariaslab.com/
   'base/base';
 
 // Layout
-@import
-  'layout/header',
-  'layout/footer';
+@import 'layout/site-header',
+'layout/site-footer';
 
 // Components
 @import
-  'components/hf-icon';
+  'components/hf-phone-link',
+  'components/hf-icon-link',
+  'components/btn-menu-icon';

@@ -49,46 +49,65 @@ class WGP_Site_Header extends \Elementor\Widget_Base {
 
     protected function render() { ?>
 
-        <section class="wgp-site-header">
+        <div class="wgp-site-header">
             <div class="inner-wrap">
-                <div class="logo-wrap">
-                    <a href="<?php echo home_url(); ?>" class="logo-link">
-                        <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/logo-wgp-header.png" class="logo-img"/>
-                    </a>
-                </div>
-                <nav class="nav-wrap">
-                    <div class="top-wrap">
-                        <a href="tel:+351967763522" class="phone-number-link">
-                            <span class="country-code">+351 </span><span class="phone-number">967 763 522</span>
-                        </a>
-                        <a href="#" class="hf-icon whatsapp">
-                            <svg><use xlink:href="#whatsapp-icon"></svg>
-                        </a>
-                        <a href="#" class="hf-icon skype">
-                            <svg><use xlink:href="#skype-icon"></svg>
-                        </a>
-                        <a href="#" class="hf-icon instagram">
-                            <svg><use xlink:href="#instagram-icon"></svg>
-                        </a>
-                        <a href="#" class="hf-icon facebook">
-                            <svg><use xlink:href="#facebook-icon"></svg>
-                        </a>
-                        <?php wp_nav_menu([
-                            'menu_class' => 'menu lang-switcher',
+                <section class="wgp-site-header-expanded">
+                    <div class="inner-wrap">
+                        <div class="logo-wrap">
+                            <a href="<?php echo home_url(); ?>" class="logo-link">
+                                <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/logo-wgp-header.svg" class="logo-img"/>
+                            </a>
+                            <?php get_template_part('_inc/partials/btn-menu-icon'); ?>
+                        </div>
+                        <nav class="nav-wrap">
+                            <div class="top-wrap">
+                                <?php get_template_part('_inc/partials/hf-phone-link');
+                                get_template_part('_inc/partials/hf-whatsapp-skype');
+                                get_template_part('_inc/partials/hf-instagram-facebook');
+
+                                wp_nav_menu([
+                                    'menu_class' => 'menu lang-switcher',
+                                    'container' => '',
+                                    'depth' => 1,
+                                    'theme_location' => 'lang_switcher'
+                                ]); ?>
+                            </div>
+                            <?php wp_nav_menu([
+                                'menu_class' => 'menu header-menu',
+                                'container' => '',
+                                'depth' => 1,
+                                'theme_location' => 'header'
+                            ]); ?>
+                        </nav>
+                    </div>
+                </section>
+                <section class="wgp-site-header-collapsed">
+                    <div class="inner-wrap">
+                        <?php get_template_part('_inc/partials/hf-phone-link');
+                        get_template_part('_inc/partials/hf-whatsapp-skype');
+                        get_template_part('_inc/partials/hf-instagram-facebook');
+
+                        wp_nav_menu([
+                            'menu_class' => 'menu header-menu',
                             'container' => '',
                             'depth' => 1,
-                            'theme_location' => 'lang_switcher'
-                        ]); ?>
+                            'theme_location' => 'header'
+                        ]);
+
+                        get_template_part('_inc/partials/btn-menu-icon'); ?>
                     </div>
-                    <?php wp_nav_menu([
-                        'menu_class' => 'menu header-menu',
-                        'container' => '',
-                        'depth' => 1,
-                        'theme_location' => 'header'
-                    ]); ?>
-                </nav>
+                </section>
             </div>
-        </section>
+        </div>
+        <script type="text/javascript">
+            if (window.initSiteHeaderById) {
+                window.initSiteHeaderById('<?php echo $this->get_id(); ?>');
+            } else {
+                window.addEventListener('siteHeaderReadyToInit', function() {
+                    window.initSiteHeaderById('<?php echo $this->get_id(); ?>');
+                });
+            }
+        </script>
 
     <?php }
 }

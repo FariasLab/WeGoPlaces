@@ -26,11 +26,16 @@
             <symbol id="facebook-icon" viewBox="0 0 24 24">
                 <path d="M18.9 12.9h-2.2v8.3h-3.8v-8.3h-1.5v-2.8h1.5V8.3c0-2.3 1-3.7 3.7-3.7h2.8v2.8h-1.6c-1.1 0-1.1.4-1.1 1.1v1.6h2.6l-.4 2.8zM19.5 0h-15C2 0 0 2 0 4.5v15C0 22 2 24 4.5 24h15c2.5 0 4.5-2 4.5-4.5v-15C24 2 22 0 19.5 0z"/>
             </symbol>
+            <symbol id="menu-icon" viewBox="0 0 21 19">
+              <path d="M19.5 0c.8 0 1.5.7 1.5 1.5S20.3 3 19.5 3h-18C.7 3 0 2.3 0 1.5S.7 0 1.5 0h18zM5.5 8C6.3 8 7 8.7 7 9.5S6.3 11 5.5 11h-4C.7 11 0 10.3 0 9.5S.7 8 1.5 8h4zM19.5 16c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5h-18C.7 19 0 18.3 0 17.5S.7 16 1.5 16h18z"/>
+            </symbol>
         </svg>
 
 
 
         <div class="site-wrap">
-            <? if ( function_exists( 'hfe_header_enabled' ) && hfe_header_enabled() ) {
-                hfe_render_header();
-            } ?>
+            <div class="site-header-wrap">
+                <? if ( function_exists( 'hfe_header_enabled' ) && hfe_header_enabled() ) {
+                    hfe_render_header();
+                } ?>
+            </div>

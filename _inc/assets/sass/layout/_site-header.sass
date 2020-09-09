@@ -1,0 +1,173 @@
+// WGP Site Header
+
+.wgp-site-header
+  background: $wgp-grey-bg
+  height: 145px
+  font-weight: 800
+  text-transform: uppercase
+  letter-spacing: 1px
+  z-index: 1
+
+  > .inner-wrap
+    background: $wgp-grey-bg
+    position: fixed
+    width: 100%
+
+  .btn-menu-wrap
+    display: none
+
+  .menu
+    display: flex
+    li
+      border-bottom: 1px solid $wgp-grey-border
+      a
+        display: block
+        color: $wgp-green
+        border-bottom: 1px solid transparent
+        margin-bottom: -1px
+        transition: color .2s, border-color .2s
+
+      &:first-child a
+        border-color: $wgp-green
+        color: $wgp-light-grey
+
+      a:hover, a:active
+        color: $wgp-dark-green
+        border-color: $wgp-green
+
+  .header-menu
+    justify-content: flex-end
+    flex-grow: 1
+
+    li
+      a
+        font-size: 14px
+        line-height: 17px
+        padding-bottom: 4px
+
+      &:not(:last-child) a
+        margin-right: 32px
+
+
+.wgp-site-header-expanded
+  position: relative
+  z-index: 2
+  transition: opacity .2s .2s
+
+  .inner-wrap
+    @include flex-align(space-between)
+    > *
+      padding: 24px 0
+
+  .logo-wrap
+    @include flex-align(space-between, center)
+
+  .logo-link
+    width: 341px
+    height: 92px
+
+  .logo-img
+    width: 100%
+
+  .nav-wrap
+    display: flex
+    flex-direction: column
+    padding-top: 38px
+
+  .top-wrap
+    @include flex-align(flex-end, center)
+    margin-bottom: 32px
+
+  .hf-phone-link
+    margin-right: 38px
+
+  .hf-icons-wrap
+    margin-right: 80px
+
+  .lang-switcher
+    li
+      a
+        font-size: 12px
+        line-height: 14px
+        padding-bottom: 13px
+
+      &:first-child a
+        margin-right: 15px
+
+
+.wgp-site-header-collapsed
+  @include flex-align(null, center)
+  position: absolute
+  left: 0
+  bottom: 0
+  width: 100%
+  height: 58px
+  opacity: 0
+  transition: opacity .2s 0s
+  z-index: 1
+
+  .inner-wrap
+    @include flex-align(null, center)
+
+  .hf-phone-link
+    margin-right: 21px
+
+  .hf-icons-wrap
+    margin-right: 57px
+
+  .header-menu li:not(:last-child) a
+    margin-right: 24px
+
+.collapsed
+  .wgp-site-header-expanded
+    opacity: 0
+    transition-delay: 0s
+  .wgp-site-header-collapsed
+    opacity: 1
+    transition-delay: .2s
+    z-index: 3
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-site-header
+    height: 163px
+    .btn-menu-wrap
+      display: block
+
+  .wgp-site-header-expanded
+
+    .inner-wrap
+      flex-direction: column-reverse
+      padding: 0
+
+    .logo-wrap
+      @include mobile-side-padding(24px)
+
+    .logo-link
+      width: 256px
+      height: 69px
+
+    .nav-wrap
+      background: #fff
+      height: 46px
+      padding: 0
+      justify-content: center
+
+    .top-wrap
+      @include mobile-side-padding
+      width: 100%
+      justify-content: space-between
+      margin: 0
+
+    .instagram-facebook, .lang-switcher, .header-menu
+      display: none
+
+    .hf-icons-wrap
+      margin-right: 0
+
+  .wgp-site-header-collapsed
+    .header-menu, .instagram-facebook
+      display: none
+    .btn-menu-wrap
+      @include flex-align(flex-end)
+      flex-grow: 1
