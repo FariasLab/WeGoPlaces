@@ -1,0 +1,17 @@
+// Header & Footer Icon Link Component
+
+.hf-icons-wrap
+  display: flex
+
+.hf-icon-link
+  &:first-child
+    margin-right: 14px
+
+  svg
+    width: 24px
+    height: 24px
+    fill: $wgp-green
+    transition: fill .2s
+
+  &:hover svg, &:active svg
+    fill: $wgp-dark-green
