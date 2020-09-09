@@ -56,8 +56,7 @@
 
   .inner-wrap
     @include flex-align(space-between)
-    > *
-      padding: 24px 0
+    @include desktop-side-padding(24px)
 
   .logo-wrap
     @include flex-align(space-between, center)
@@ -72,7 +71,7 @@
   .nav-wrap
     display: flex
     flex-direction: column
-    padding-top: 38px
+    padding-top: 14px
 
   .top-wrap
     @include flex-align(flex-end, center)
@@ -168,6 +167,8 @@
   .wgp-site-header-collapsed
     .header-menu, .instagram-facebook
       display: none
+    .hf-icons-wrap
+      margin-right: 0
     .btn-menu-wrap
       @include flex-align(flex-end)
       flex-grow: 1

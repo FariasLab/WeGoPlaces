@@ -31,7 +31,7 @@ class WGP_Site_Header extends \Elementor\Widget_Base {
             ]
         );
 
-        $raw_html = '<br>' . __( 'Go to Appearance > Menus to edit the menu.', 'wgp' );
+        $raw_html = '<br>' . __( 'Go to Appearance > Menus and select Header Menu to edit the menu.', 'wgp' );
         $raw_html .= '<br><br>' . __( 'Go to WGP Options > Header & Footer to edit the phone number and social links.', 'wgp' );
         $raw_html .= '<br><br>' . __( 'For other changes please contact your web developer.', 'wgp' );
         $this->add_control(
@@ -47,7 +47,11 @@ class WGP_Site_Header extends \Elementor\Widget_Base {
 
     }
 
-    protected function render() { ?>
+    protected function render() {
+
+        if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
+            get_template_part('_inc/partials/icon-svg-symbols');
+        } ?>
 
         <div class="wgp-site-header">
             <div class="inner-wrap">
