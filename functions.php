@@ -8,6 +8,7 @@ require_once get_template_directory() . '/_inc/partials/redux-config.php';
 // Require Custom Elementor Widgets
 add_action( 'elementor/widgets/widgets_registered', function() {
     require_once( get_template_directory() . '/_inc/widgets/elementor/site-header.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/site-footer.php' );
 });
 
 
@@ -104,6 +105,12 @@ add_action( 'init', function () {
         'footer' => __('Footer Menu', 'wgp'),
         'lang_switcher' => __('Language Switcher Menu', 'wgp')
     ]);
+});
+
+
+// Icon System SVG Symbols
+add_action('wp_body_open', function () {
+    get_template_part('_inc/partials/icon-svg-symbols');
 });
 
 

@@ -1,1 +1,90 @@
 // WGP Site Footer
+
+.wgp-site-footer
+  background: #464542
+  color: #fff
+
+  .inner-wrap
+    @include desktop-side-padding(32px)
+    @include flex-align(space-between)
+
+  .logo-wrap
+    width: 293px
+    margin: 0 67px 6px 0
+
+    p
+      font-size: 14px
+      line-height: 20px
+
+  .logo-link
+    display: block
+    margin-bottom: 21px
+
+  .footer-claims
+    margin-bottom: 20px
+
+  li a, .blog-link
+    display: block
+    font-size: 14px
+    font-weight: 800
+    line-height: 17px
+    color: $wgp-green
+    text-transform: uppercase
+    transition: color .2s
+
+    &:hover, &:active
+      color: $wgp-dark-green
+
+  .footer-menu
+    width: 110px
+    margin: 13px 70px 4px 0
+
+    li:not(:last-child)
+      margin-bottom: 16px
+
+  .footer-title
+    font-size: 20px
+    line-height: 24px
+    margin-top: 11px
+
+  .contacts-wrap
+    width: 194px
+    margin-right: 166px
+
+    .footer-title
+      margin-bottom: 6px
+
+    .hf-phone-link
+      margin-bottom: 10px
+
+  .socials-wrap
+    flex-grow: 1
+
+    .footer-title
+      margin-bottom: 16px
+
+    .blog-link
+      margin-bottom: 20px
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-site-footer
+
+    .inner-wrap
+      @include mobile-side-padding(32px)
+
+    .footer-menu
+      margin-right: 15%
+
+    .contacts-wrap, .socials-wrap
+      display: none
+
+@media only screen and (max-width: 767px)
+
+  .wgp-site-footer
+
+    .logo-wrap
+      margin-right: 0
+
+    .footer-menu
+      display: none
