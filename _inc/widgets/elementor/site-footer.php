@@ -1,10 +1,11 @@
-<?php // Site Header Elementor Widget
+<?php // Site Footer Elementor Widget
 
 namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class WGP_Site_Footer extends \Elementor\Widget_Base {
+class WGP_Site_Footer extends Widget_Base
+{
 
     public function get_name() {
         return 'wgp_site_footer';
@@ -28,7 +29,7 @@ class WGP_Site_Footer extends \Elementor\Widget_Base {
             'content_section', [
                 'label' => __('Content', 'wgp'),
                 'label_block' => true,
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -36,7 +37,7 @@ class WGP_Site_Footer extends \Elementor\Widget_Base {
             'footer_claims', [
                 'label' => __( 'Footer Claims', 'wgp' ),
                 'label_block' => true,
-                'type' => \Elementor\Controls_Manager::TEXT
+                'type' => Controls_Manager::TEXT
             ]
         );
 
@@ -44,7 +45,7 @@ class WGP_Site_Footer extends \Elementor\Widget_Base {
             'footer_locations', [
                 'label' => __( 'Footer Locations', 'wgp' ),
                 'label_block' => true,
-                'type' => \Elementor\Controls_Manager::TEXT
+                'type' => Controls_Manager::TEXT
             ]
         );
 
@@ -52,7 +53,7 @@ class WGP_Site_Footer extends \Elementor\Widget_Base {
             'contacts_title', [
                 'label' => __( 'Contacts Title', 'wgp' ),
                 'label_block' => true,
-                'type' => \Elementor\Controls_Manager::TEXT
+                'type' => Controls_Manager::TEXT
             ]
         );
 
@@ -60,7 +61,7 @@ class WGP_Site_Footer extends \Elementor\Widget_Base {
             'socials_title', [
                 'label' => __( 'Socials Title', 'wgp' ),
                 'label_block' => true,
-                'type' => \Elementor\Controls_Manager::TEXT
+                'type' => Controls_Manager::TEXT
             ]
         );
 
@@ -68,14 +69,14 @@ class WGP_Site_Footer extends \Elementor\Widget_Base {
             'blog_title', [
                 'label' => __( 'Blog Title', 'wgp' ),
                 'label_block' => true,
-                'type' => \Elementor\Controls_Manager::TEXT
+                'type' => Controls_Manager::TEXT
             ]
         );
 
         $this->add_control(
             'blog_link', [
             'label' => __( 'Blog Link', 'wgp' ),
-            'type' => \Elementor\Controls_Manager::URL,
+            'type' => Controls_Manager::URL,
             'show_external' => false
         ]);
 
@@ -85,7 +86,7 @@ class WGP_Site_Footer extends \Elementor\Widget_Base {
         $this->add_control(
             'help', [
                 'label' => __( 'To edit other footer content:', 'wgp' ),
-                'type' => \Elementor\Controls_Manager::RAW_HTML,
+                'type' => Controls_Manager::RAW_HTML,
                 'label_block' => true,
                 'separator' => 'before',
                 'raw' => $raw_html

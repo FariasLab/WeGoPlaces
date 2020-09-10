@@ -4,7 +4,8 @@ namespace Elementor;
 
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-class WGP_Site_Header extends \Elementor\Widget_Base {
+class WGP_Site_Header extends Widget_Base
+{
 
     public function get_name() {
         return 'wgp_site_header';
@@ -27,7 +28,7 @@ class WGP_Site_Header extends \Elementor\Widget_Base {
         $this->start_controls_section(
             'content_section', [
                 'label' => __( 'Content', 'wgp' ),
-                'tab' => \Elementor\Controls_Manager::TAB_CONTENT,
+                'tab' => Controls_Manager::TAB_CONTENT,
             ]
         );
 
@@ -37,7 +38,7 @@ class WGP_Site_Header extends \Elementor\Widget_Base {
         $this->add_control(
             'help', [
                 'label' => __( 'To edit the header content:', 'wgp' ),
-                'type' => \Elementor\Controls_Manager::RAW_HTML,
+                'type' => Controls_Manager::RAW_HTML,
                 'label_block' => true,
                 'raw' => $raw_html
             ]
@@ -69,12 +70,16 @@ class WGP_Site_Header extends \Elementor\Widget_Base {
                                 get_template_part('_inc/partials/hf-whatsapp-skype');
                                 get_template_part('_inc/partials/hf-instagram-facebook');
 
-                                wp_nav_menu([
+                                /*wp_nav_menu([
                                     'menu_class' => 'menu lang-switcher',
                                     'container' => '',
                                     'depth' => 1,
                                     'theme_location' => 'lang_switcher'
-                                ]); ?>
+                                ]);*/ ?>
+                                <ul class="menu lang-switcher">
+                                    <li class="current-menu-item"><a href="#">Eng</a></li>
+                                    <li><a href="#">Por</a></li>
+                                </ul>
                             </div>
                             <?php wp_nav_menu([
                                 'menu_class' => 'menu header-menu',
@@ -116,4 +121,4 @@ class WGP_Site_Header extends \Elementor\Widget_Base {
     <?php }
 }
 
-Plugin::instance()->widgets_manager->register_widget_type( new \Elementor\WGP_Site_Header() );
+Plugin::instance()->widgets_manager->register_widget_type( new WGP_Site_Header() );

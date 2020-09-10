@@ -27,7 +27,7 @@
         margin-bottom: -1px
         transition: color .2s, border-color .2s
 
-      &:first-child a
+      &.current-menu-item a
         border-color: $wgp-green
         color: $wgp-light-grey
 
@@ -114,8 +114,11 @@
   .hf-icons-wrap
     margin-right: 57px
 
-  .header-menu li:not(:last-child) a
-    margin-right: 24px
+  .header-menu li
+    border-color: transparent
+
+    &:not(:last-child) a
+      margin-right: 24px
 
 .collapsed
   .wgp-site-header-expanded
