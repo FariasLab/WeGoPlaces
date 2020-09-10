@@ -13,7 +13,10 @@ img, svg
   height: auto
 
 .site-wrap
-  min-width: 320px
+  min-width: 375px
+  min-height: 100vh
+  display: flex
+  flex-direction: column
 
 section > .inner-wrap
   @include desktop-side-padding
@@ -22,7 +25,10 @@ section > .inner-wrap
   margin: 0 auto
 
 .site-main
-  min-height: 2000px // temp to help test header collapse animation
+  flex-grow: 1
+
+.section-tagline
+
 
 @media only screen and (max-width: 1239px)
   section > .inner-wrap
