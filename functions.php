@@ -1,6 +1,9 @@
 <?php // Theme Functions
 
-// Required Files
+// Imports & Misc Required Files
+
+use Elementor\Plugin;
+
 require_once get_template_directory() . '/_inc/classes/class-tgm-plugin-activation.php';
 require_once get_template_directory() . '/_inc/partials/redux-config.php';
 
@@ -9,6 +12,7 @@ require_once get_template_directory() . '/_inc/partials/redux-config.php';
 add_action( 'elementor/widgets/widgets_registered', function() {
     require_once( get_template_directory() . '/_inc/widgets/elementor/site-header.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/site-footer.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/home-hero.php' );
 });
 
 
@@ -71,7 +75,14 @@ add_action( 'after_setup_theme', function() {
 
 // Categories for Custom Elementor Widgets
 add_action( 'elementor/init', function() {
-    \Elementor\Plugin::$instance->elements_manager->add_category('wgp_header_footer', ['title' => __( 'WGP Header & Footer', 'wgp' )]);
+    Plugin::$instance->elements_manager->add_category('wgp_header_footer', ['title' => __( 'WGP Header & Footer', 'wgp' )]);
+    Plugin::$instance->elements_manager->add_category('wgp_home_page', ['title' => __( 'WGP Home Page', 'wgp' )]);
+    Plugin::$instance->elements_manager->add_category('wgp_about_page', ['title' => __( 'WGP About Page', 'wgp' )]);
+    Plugin::$instance->elements_manager->add_category('wgp_courses_page', ['title' => __( 'WGP Courses Page', 'wgp' )]);
+    Plugin::$instance->elements_manager->add_category('wgp_translation_page', ['title' => __( 'WGP Translation Page', 'wgp' )]);
+    Plugin::$instance->elements_manager->add_category('wgp_clients_page', ['title' => __( 'WGP Clients Page', 'wgp' )]);
+    Plugin::$instance->elements_manager->add_category('wgp_blog_page', ['title' => __( 'WGP Blog Page', 'wgp' )]);
+    Plugin::$instance->elements_manager->add_category('wgp_contact_page', ['title' => __( 'WGP Contact Page', 'wgp' )]);
 });
 
 
