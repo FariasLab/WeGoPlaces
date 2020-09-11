@@ -42,6 +42,9 @@
     li:not(:last-child)
       margin-bottom: 16px
 
+    li:last-child
+      display: none
+
   .footer-title
     font-size: 20px
     line-height: 24px
@@ -66,18 +69,26 @@
     .blog-link
       margin-bottom: 20px
 
+
 @media only screen and (max-width: 1239px)
 
   .wgp-site-footer
 
     .inner-wrap
-      @include mobile-side-padding(32px)
+      @include tablet-side-padding(32px)
+      align-items: center
 
     .footer-menu
-      margin-right: 15%
+      width: 260px
+      margin: 0
+      column-count: 2
+
+      li:last-child
+        display: block
 
     .contacts-wrap, .socials-wrap
       display: none
+
 
 @media only screen and (max-width: 767px)
 
