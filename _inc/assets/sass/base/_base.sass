@@ -37,17 +37,52 @@ section > .inner-wrap
 .section-title
   font-size: 48px
   line-height: 63px
+  font-weight: 300
 
 .body-text
   letter-spacing: 1.2px
 
 .btn-primary
   display: inline-block
-  background: $wgp-green
-  color: #fff
-  font-size: 18px
-  font-weight: 800
-  letter-spacing: 1.4px
+  position: relative
+  border-radius: 8px
+
+  &:before
+    display: block
+    content: ''
+    position: absolute
+    width: calc(100% - 10px)
+    height: calc(100% - 10px)
+    border-radius: 8px
+    right: 0
+    bottom: 0
+    box-shadow: 0 0 16px 0 $wgp-green
+
+  .inner-wrap
+    @include flex-align(center, center)
+    position: relative
+    padding: 30px 40px
+    border-radius: 8px
+    background-color: $wgp-green
+    transition: background-color .2s
+
+  &:hover .inner-wrap
+    background-color: $wgp-dark-green
+
+  .btn-text
+    font-size: 18px
+    font-weight: 800
+    line-height: 20px
+    letter-spacing: 1.4px
+    text-transform: uppercase
+    margin-right: 13px
+    color: #fff
+
+  .arrow-icon
+    fill: $wgp-light-green
+    width: 16px
+    height: 13px
+
 
 @media only screen and (max-width: 1239px)
   section > .inner-wrap

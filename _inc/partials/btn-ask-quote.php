@@ -10,6 +10,8 @@
 ?>
 
 <a href="#" class="btn-ask-quote btn-primary">
-    <span class="btn-text">Ask for a Quote</span>
-    <svg><use xlink:href="#arrow-icon"></svg>
+    <div class="inner-wrap">
+        <span class="btn-text">Ask for a Quote</span>
+        <svg class="arrow-icon"><use xlink:href="#arrow-icon"></svg>
+    </div>
 </a>

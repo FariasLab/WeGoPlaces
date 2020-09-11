@@ -124,7 +124,7 @@ fieldset {
   font-display: swap;
 }
 body {
-  font-family: "Gilroy", sans-serif;
+  font: 300 20px/28px "Gilroy", sans-serif;
   color: #4D4D4D;
 }
 
@@ -154,6 +154,68 @@ section > .inner-wrap {
 
 .site-main {
   flex-grow: 1;
+}
+
+.section-tagline {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-size: 48px;
+  line-height: 63px;
+  font-weight: 300;
+}
+
+.body-text {
+  letter-spacing: 1.2px;
+}
+
+.btn-primary {
+  display: inline-block;
+  position: relative;
+  border-radius: 8px;
+}
+.btn-primary:before {
+  display: block;
+  content: "";
+  position: absolute;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  border-radius: 8px;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 0 16px 0 #00c2b4;
+}
+.btn-primary .inner-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 30px 40px;
+  border-radius: 8px;
+  background-color: #00c2b4;
+  transition: background-color 0.2s;
+}
+.btn-primary:hover .inner-wrap {
+  background-color: #009B90;
+}
+.btn-primary .btn-text {
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 20px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  margin-right: 13px;
+  color: #fff;
+}
+.btn-primary .arrow-icon {
+  fill: #5AE7CC;
+  width: 16px;
+  height: 13px;
 }
 
 @media only screen and (max-width: 1239px) {
@@ -435,6 +497,33 @@ section > .inner-wrap {
     display: none;
   }
 }
+.wgp-home-hero {
+  background: #F6F4EF;
+}
+.wgp-home-hero > .inner-wrap {
+  padding: 36px 80px;
+  position: relative;
+}
+.wgp-home-hero > .inner-wrap > * {
+  max-width: 680px;
+}
+.wgp-home-hero .section-header {
+  padding-top: 8px;
+  margin-bottom: 10px;
+}
+.wgp-home-hero .section-tagline {
+  margin-bottom: 14px;
+}
+.wgp-home-hero .section-img {
+  position: absolute;
+  width: 509px;
+  right: -29px;
+  top: 35px;
+}
+.wgp-home-hero .body-text {
+  margin-bottom: 33px;
+}
+
 .hf-phone-link {
   display: inline-block;
   font-size: 24px;
@@ -448,9 +537,10 @@ section > .inner-wrap {
 .hf-phone-link .country-code {
   font-size: 14px;
   line-height: 17px;
+  letter-spacing: 1.09px;
 }
 .hf-phone-link .phone-number {
-  letter-spacing: 2px;
+  letter-spacing: 1.87px;
 }
 
 .hf-icons-wrap {
