@@ -17,6 +17,12 @@
   @else
     padding: 0 80px
 
+@mixin tablet-side-padding($top-bottom: null)
+  @if $top-bottom
+    padding: $top-bottom calc(100% * 48 / 768)
+  @else
+    padding: 0 calc(100% * 48 / 768)
+
 @mixin mobile-side-padding($top-bottom: null)
   @if $top-bottom
     padding: $top-bottom calc(100% * 20 / 375)

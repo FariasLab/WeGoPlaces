@@ -129,12 +129,50 @@
     transition-delay: .2s
     z-index: 3
 
+
 @media only screen and (max-width: 1239px)
+
+  .wgp-site-header-expanded
+
+    .inner-wrap
+      @include tablet-side-padding(48px)
+
+    .logo-link
+      width: 256px
+      height: 69px
+
+    .nav-wrap
+      padding-top: 16px
+
+    .top-wrap
+      margin: 0
+
+      .btn-menu-wrap
+        display: block
+
+    .hf-icons-wrap
+      margin-right: 40px
+
+    .instagram-facebook, .header-menu, .lang-switcher
+      display: none
+
+  .wgp-site-header-collapsed
+
+    .header-menu
+      display: none
+
+    .btn-menu-wrap
+      @include flex-align(flex-end)
+      flex-grow: 1
+
+
+@media only screen and (max-width: 767px)
 
   .wgp-site-header
     height: 163px
+
     .btn-menu-wrap
-      display: block
+      display: flex
 
   .wgp-site-header-expanded
 
@@ -144,10 +182,6 @@
 
     .logo-wrap
       @include mobile-side-padding(24px)
-
-    .logo-link
-      width: 256px
-      height: 69px
 
     .nav-wrap
       background: #fff
@@ -161,6 +195,9 @@
       justify-content: space-between
       margin: 0
 
+      .btn-menu-wrap
+        display: none
+
     .instagram-facebook, .lang-switcher, .header-menu
       display: none
 
@@ -172,6 +209,3 @@
       display: none
     .hf-icons-wrap
       margin-right: 0
-    .btn-menu-wrap
-      @include flex-align(flex-end)
-      flex-grow: 1

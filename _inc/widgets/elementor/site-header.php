@@ -80,6 +80,7 @@ class WGP_Site_Header extends Widget_Base
                                     <li class="current-menu-item"><a href="#">Eng</a></li>
                                     <li><a href="#">Por</a></li>
                                 </ul>
+                                <?php get_template_part('_inc/partials/btn-menu-icon'); ?>
                             </div>
                             <?php wp_nav_menu([
                                 'menu_class' => 'menu header-menu',

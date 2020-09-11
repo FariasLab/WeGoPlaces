@@ -18,14 +18,18 @@ img, svg
   display: flex
   flex-direction: column
 
-section > .inner-wrap
-  @include desktop-side-padding
-  width: 100%
-  max-width: 1240px
-  margin: 0 auto
+section
+  overflow: hidden
+
+  > .inner-wrap
+    @include desktop-side-padding
+    width: 100%
+    max-width: 1240px
+    margin: 0 auto
 
 .site-main
-  flex-grow: 1
+  //flex-grow: 1
+  min-height: 200vh
 
 .section-tagline
   font-size: 14px
@@ -48,8 +52,7 @@ section > .inner-wrap
   border-radius: 8px
 
   &:before
-    display: block
-    content: ''
+    @include content-block
     position: absolute
     width: calc(100% - 10px)
     height: calc(100% - 10px)
@@ -85,5 +88,9 @@ section > .inner-wrap
 
 
 @media only screen and (max-width: 1239px)
+  section > .inner-wrap
+    @include tablet-side-padding
+
+@media only screen and (max-width: 767px)
   section > .inner-wrap
     @include mobile-side-padding
