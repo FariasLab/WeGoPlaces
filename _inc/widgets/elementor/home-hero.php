@@ -56,7 +56,7 @@ class WGP_Home_Hero extends Widget_Base
                 'label' => __( 'Body Text', 'wgp' ),
                 'label_block' => true,
                 'type' => Controls_Manager::TEXTAREA,
-                'rows' => 5
+                'rows' => 6
             ]
         );
 
@@ -93,17 +93,15 @@ class WGP_Home_Hero extends Widget_Base
 
         $settings = $this->get_settings_for_display(); ?>
 
-        <section class="wgp-home-hero">
+        <section class="wgp-home-hero hero-section">
             <div class="inner-wrap">
                 <header class="section-header">
                     <p class="section-tagline"><?php echo $settings['section_tagline']; ?></p>
                     <h2 class="section-title"><?php echo $settings['section_title']; ?></h2>
                 </header>
-                <!--Image will go here-->
-
-
-
-
+                <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/home-hero.svg" class="section-img">
+                <p class="body-text"><?php echo $settings['body_text']; ?></p>
+                <?php get_template_part('_inc/partials/btn-ask-quote'); ?>
             </div>
         </section>
 

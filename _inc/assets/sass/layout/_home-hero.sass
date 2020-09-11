@@ -5,15 +5,25 @@
 
   .inner-wrap
     @include desktop-side-padding(36px)
-    display: flex
+    position: relative
 
-  .text-wrap
-    width: 680px
+    > *
+      max-width: 680px
 
-  .tagline
+  .section-header
+    margin-bottom: 10px
+
+  .section-tagline
     padding-top: 44px
-    font-size: 14px
-    line-height: 17px
-    font-weight: 800
-    text-transform: uppercase
     margin-bottom: 14px
+
+  .section-img
+    position: absolute
+    width: 509px
+    right: -29px
+    top: 35px
+
+  .body-text
+    margin-bottom: 33px
+    
+
