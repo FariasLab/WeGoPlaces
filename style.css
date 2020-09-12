@@ -222,13 +222,30 @@ section > .inner-wrap {
 }
 
 @media only screen and (max-width: 1239px) {
+  section {
+    overflow: visible;
+  }
   section > .inner-wrap {
     padding: 0 calc(100% * 48 / 768);
   }
 }
 @media only screen and (max-width: 767px) {
+  body {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
   section > .inner-wrap {
     padding: 0 calc(100% * 20 / 375);
+  }
+
+  .section-title {
+    font-size: 36px;
+    line-height: 48px;
+  }
+
+  .body-text {
+    letter-spacing: 1px;
   }
 }
 .wgp-site-header {
@@ -558,16 +575,80 @@ section > .inner-wrap {
 .wgp-home-hero .section-tagline {
   margin-bottom: 14px;
 }
-.wgp-home-hero .section-img {
+.wgp-home-hero .section-img-wrap {
   position: absolute;
   width: 509px;
   right: -29px;
   top: 35px;
 }
+.wgp-home-hero .section-img {
+  width: 100%;
+}
 .wgp-home-hero .body-text {
   margin-bottom: 33px;
 }
 
+@media only screen and (max-width: 1239px) {
+  .wgp-home-hero {
+    margin-bottom: 92px;
+  }
+  .wgp-home-hero > .inner-wrap {
+    padding: 0 calc(100% * 48 / 768);
+  }
+  .wgp-home-hero .section-header {
+    padding-top: 24px;
+    margin-bottom: 5px;
+  }
+  .wgp-home-hero .section-img-wrap {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: 444px;
+    margin-bottom: 32px;
+  }
+  .wgp-home-hero .body-text {
+    margin: 0;
+    padding-bottom: 65px;
+  }
+  .wgp-home-hero .btn-ask-quote {
+    position: absolute;
+    bottom: -40px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .wgp-home-hero {
+    margin-bottom: 101px;
+  }
+  .wgp-home-hero > .inner-wrap {
+    padding: 0 calc(100% * 20 / 375);
+  }
+  .wgp-home-hero .section-header {
+    padding: 0;
+    margin-bottom: 13px;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .wgp-home-hero .section-title {
+    margin-bottom: 9px;
+  }
+  .wgp-home-hero .section-img-wrap {
+    margin: 0 calc(100% * -20 / 375) 26px;
+    padding-left: calc(100% * 10 / 375);
+    width: calc(100% + 100% * 40 / 375);
+    max-width: calc(100% + 100% * 40 / 375);
+    overflow: hidden;
+  }
+  .wgp-home-hero .section-img {
+    width: 401px;
+    max-width: none;
+    margin: 0 auto;
+  }
+  .wgp-home-hero .btn-ask-quote {
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 .hf-phone-link {
   display: inline-block;
   font-size: 24px;

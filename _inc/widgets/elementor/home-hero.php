@@ -99,7 +99,9 @@ class WGP_Home_Hero extends Widget_Base
                     <p class="section-tagline"><?php echo $settings['section_tagline']; ?></p>
                     <h2 class="section-title"><?php echo $settings['section_title']; ?></h2>
                 </header>
-                <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/home-hero.svg" class="section-img">
+                <div class="section-img-wrap">
+                    <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/home-hero.svg" class="section-img">
+                </div>
                 <p class="body-text"><?php echo $settings['body_text']; ?></p>
                 <?php get_template_part('_inc/partials/btn-ask-quote'); ?>
             </div>
