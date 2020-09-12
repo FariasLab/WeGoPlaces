@@ -24,76 +24,24 @@ class WGP_Home_Hero extends Widget_Base
     }
 
     protected function _register_controls() {
-
-        $this->start_controls_section(
-            'content_section', [
-                'label' => __('Content', 'wgp'),
-                'label_block' => true,
-                'tab' => Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        $this->add_control(
-            'section_tagline', [
-                'label' => __( 'Section Tagline', 'wgp' ),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXTAREA,
-                'rows' => 2
-            ]
-        );
-
-        $this->add_control(
-            'section_title', [
-                'label' => __( 'Section Title', 'wgp' ),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXTAREA,
-                'rows' => 2
-            ]
-        );
-
-        $this->add_control(
-            'body_text', [
-                'label' => __( 'Body Text', 'wgp' ),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXTAREA,
-                'rows' => 6
-            ]
-        );
-
-        $this->add_control(
-            'button_text', [
-                'label' => __( 'Button Text', 'wgp' ),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXT
-            ]
-        );
-
-        $this->add_control(
-            'button_link', [
-            'label' => __( 'Button Link', 'wgp' ),
-            'type' => Controls_Manager::URL,
-            'show_external' => false
+        register_common_controls($this, [
+            ['section_tagline', 'Section Tagline', Controls_Manager::TEXTAREA],
+            ['section_title', 'Section Title', Controls_Manager::TEXTAREA],
+            ['body_text', 'Body Text', Controls_Manager::TEXTAREA, ['rows' => 6]],
+            ['button_text', 'Button Text', Controls_Manager::TEXT],
+            ['button_link', 'Button Link', Controls_Manager::URL],
         ]);
-
-        $this->add_control(
-            'help', [
-                'label' => __( 'To edit other content:', 'wgp' ),
-                'type' => Controls_Manager::RAW_HTML,
-                'label_block' => true,
-                'separator' => 'before',
-                'raw' => '<br>' . __( 'Please contact your web developer.', 'wgp' )
-            ]
-        );
-
-        $this->end_controls_section();
-
     }
 
     protected function render() {
 
-        $settings = $this->get_settings_for_display(); ?>
+        $settings = $this->get_settings_for_display();
 
-        <section class="wgp-home-hero hero-section">
+        if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
+            get_template_part('_inc/partials/icon-svg-symbols');
+        } ?>
+
+        <section class="wgp-home-hero">
             <div class="inner-wrap">
                 <header class="section-header">
                     <p class="section-tagline"><?php echo $settings['section_tagline']; ?></p>

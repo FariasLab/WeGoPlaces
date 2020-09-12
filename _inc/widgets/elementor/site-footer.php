@@ -24,82 +24,25 @@ class WGP_Site_Footer extends Widget_Base
     }
 
     protected function _register_controls() {
-
-        $this->start_controls_section(
-            'content_section', [
-                'label' => __('Content', 'wgp'),
-                'label_block' => true,
-                'tab' => Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        $this->add_control(
-            'footer_claims', [
-                'label' => __( 'Footer Claims', 'wgp' ),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXT
-            ]
-        );
-
-        $this->add_control(
-            'footer_locations', [
-                'label' => __( 'Footer Locations', 'wgp' ),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXT
-            ]
-        );
-
-        $this->add_control(
-            'contacts_title', [
-                'label' => __( 'Contacts Title', 'wgp' ),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXT
-            ]
-        );
-
-        $this->add_control(
-            'socials_title', [
-                'label' => __( 'Socials Title', 'wgp' ),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXT
-            ]
-        );
-
-        $this->add_control(
-            'blog_title', [
-                'label' => __( 'Blog Title', 'wgp' ),
-                'label_block' => true,
-                'type' => Controls_Manager::TEXT
-            ]
-        );
-
-        $this->add_control(
-            'blog_link', [
-            'label' => __( 'Blog Link', 'wgp' ),
-            'type' => Controls_Manager::URL,
-            'show_external' => false
-        ]);
-
         $raw_html = '<br>' . __( 'Go to Appearance > Menus and select Footer Menu to edit the menu.', 'wgp' );
         $raw_html .= '<br><br>' . __( 'Go to WGP Options > Header & Footer to edit the phone number and social links.', 'wgp' );
-        $raw_html .= '<br><br>' . __( 'For other changes please contact your web developer.', 'wgp' );
-        $this->add_control(
-            'help', [
-                'label' => __( 'To edit other footer content:', 'wgp' ),
-                'type' => Controls_Manager::RAW_HTML,
-                'label_block' => true,
-                'separator' => 'before',
-                'raw' => $raw_html
-            ]
-        );
-
-        $this->end_controls_section();
-
+        register_common_controls($this, [
+            ['footer_claims', 'Footer Claims', Controls_Manager::TEXT],
+            ['footer_locations', 'Footer Locations', Controls_Manager::TEXT],
+            ['contacts_title', 'Contacts Title', Controls_Manager::TEXT],
+            ['socials_title', 'Socials Title', Controls_Manager::TEXT],
+            ['instructions', 'Instructions to edit other main content:', Controls_Manager::RAW_HTML, ['raw' => $raw_html, 'separator' => 'before']]
+        ]);
     }
 
     protected function render() {
 
         $settings = $this->get_settings_for_display();
+
+        $menu = get_term(get_nav_menu_locations()['footer'], 'nav_menu');
+        $menu_items = wp_get_nav_menu_items($menu);
+        $last_menu_item = end($menu_items);
+
 
         if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
             get_template_part('_inc/partials/icon-svg-symbols');
@@ -130,8 +73,8 @@ class WGP_Site_Footer extends Widget_Base
 
                 <div class="socials-wrap">
                     <p class="footer-title"><?php echo $settings['socials_title']; ?></p>
-                    <a href="<?php echo $settings['blog_link']['url']; ?>" class="blog-link">
-                        <?php echo $settings['blog_title']; ?>
+                    <a href="<?php echo $last_menu_item->url; ?>" class="last-menu-link">
+                        <?php echo $last_menu_item->post_title; ?>
                     </a>
                     <?php get_template_part('_inc/partials/hf-instagram-facebook'); ?>
                 </div>

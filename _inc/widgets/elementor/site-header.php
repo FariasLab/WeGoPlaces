@@ -24,28 +24,11 @@ class WGP_Site_Header extends Widget_Base
     }
 
     protected function _register_controls() {
-
-        $this->start_controls_section(
-            'content_section', [
-                'label' => __( 'Content', 'wgp' ),
-                'tab' => Controls_Manager::TAB_CONTENT,
-            ]
-        );
-
-        $raw_html = '<br>' . __( 'Go to Appearance > Menus and select Header Menu to edit the menu.', 'wgp' );
-        $raw_html .= '<br><br>' . __( 'Go to WGP Options > Header & Footer to edit the phone number and social links.', 'wgp' );
-        $raw_html .= '<br><br>' . __( 'For other changes please contact your web developer.', 'wgp' );
-        $this->add_control(
-            'help', [
-                'label' => __( 'To edit the header content:', 'wgp' ),
-                'type' => Controls_Manager::RAW_HTML,
-                'label_block' => true,
-                'raw' => $raw_html
-            ]
-        );
-
-        $this->end_controls_section();
-
+        $raw_html = '<br>' . __( 'Go to WGP Options > Header & Footer to edit the phone number and social links.', 'wgp' );
+        $raw_html .= '<br><br>' . __( 'Go to Appearance > Menus and select Header Menu or Language Switcher Menu to edit the respective menu.', 'wgp' );
+        register_common_controls($this, [
+            ['instructions', 'Instructions to edit the main content:', Controls_Manager::RAW_HTML, ['raw' => $raw_html]]
+        ]);
     }
 
     protected function render() {
@@ -75,11 +58,14 @@ class WGP_Site_Header extends Widget_Base
                                     'container' => '',
                                     'depth' => 1,
                                     'theme_location' => 'lang_switcher'
-                                ]);*/ ?>
+                                ]);*/
+
+                                // Temp Lang Switcher for Testing ?>
                                 <ul class="menu lang-switcher">
                                     <li class="current-menu-item"><a href="#">Eng</a></li>
                                     <li><a href="#">Por</a></li>
                                 </ul>
+
                                 <?php get_template_part('_inc/partials/btn-menu-icon'); ?>
                             </div>
                             <?php wp_nav_menu([

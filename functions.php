@@ -6,6 +6,7 @@ use Elementor\Plugin;
 
 require_once get_template_directory() . '/_inc/classes/class-tgm-plugin-activation.php';
 require_once get_template_directory() . '/_inc/partials/redux-config.php';
+require_once get_template_directory() . '/_inc/partials/controls-helper.php';
 
 
 // Require Custom Elementor Widgets
@@ -13,6 +14,7 @@ add_action( 'elementor/widgets/widgets_registered', function() {
     require_once( get_template_directory() . '/_inc/widgets/elementor/site-header.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/site-footer.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-hero.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/home-training.php' );
 });
 
 
@@ -123,17 +125,3 @@ add_action( 'init', function () {
 add_action('wp_body_open', function () {
     get_template_part('_inc/partials/icon-svg-symbols');
 });
-
-
-// Helper Functions
-
-// Shim for wp_body_open, ensuring backward compatibility with versions of WordPress older than 5.2.
-if ( ! function_exists( 'wp_body_open' ) ) {
-    function wp_body_open() {
-        do_action( 'wp_body_open' );
-    }
-}
-
-//function built_with_elementor($id) {
-//	return class_exists('Elementor\Plugin') && \Elementor\Plugin::$instance->db->is_built_with_elementor($id);
-//}
