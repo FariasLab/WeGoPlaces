@@ -1,30 +1,113 @@
 // WGP Home Page Training Section
 
 .wgp-home-training
-  margin-bottom: 72px
+  padding-top: 43px
 
   > .inner-wrap
-    @include desktop-side-padding(36px)
+    @include desktop-side-padding(34px)
     position: relative
 
-    > *
-      margin-left: 360px
-
   .section-tagline
-    margin-bottom: 11px
+    margin: 0 0 11px 360px
 
   .section-title
     max-width: 720px
-    margin-bottom: 29px
+    margin: 0 0 29px 360px
+
+  .section-img-wrap
+    position: absolute
+    left: -21px
+    top: 82px
+    width: 420px
+
+  .icon-list
+    margin-left: 360px
 
   .icon-wrap:before
     background: $wgp-darkorange
     opacity: .1
 
+  .icon-tune, .icon-chat
+    width: 20px
+
+  .icon-stairs
+    width: 18px
+
+  .more-link
+    margin-left: 360px
+    color: $wgp-darkorange
+
+    .arrow-icon
+      fill: $wgp-darkorange
+
+    &:hover, &:active
+      color: $wgp-darkorange-hover
+
+      .arrow-icon
+        fill: $wgp-darkorange-hover
 
 
+@media only screen and (max-width: 1239px)
+
+  .wgp-home-training
+    padding-top: 36px
+
+    > .inner-wrap
+      @include tablet-side-padding(16px)
+
+    .section-tagline
+      margin: 0 0 3px 0
+
+    .section-title
+      margin: 0 0 23px 0
+
+    .section-img-wrap
+      top: 147px
+
+    .icon-list
+      display: block
+      margin: 0 0 33px 376px
+
+    .icon-list-item
+      @include flex-align(flex-start, center)
+      width: 100%
+      padding: 0
+
+      &:not(:last-child)
+        margin: 0 0 24px
+
+    .icon-wrap
+      margin: 0 11px 0 0
+
+    .more-link
+      margin-left: 437px
 
 
+@media only screen and (max-width: 767px)
 
+  .wgp-home-training
+    padding-top: 33px
 
+    > .inner-wrap
+      @include mobile-side-padding(28px)
+
+    .section-tagline
+      margin-bottom: 6px
+
+    .section-title
+      margin-bottom: 16px
+
+    .section-img-wrap
+      position: relative
+      left: auto
+      top: auto
+      width: 100%
+      max-width: 404px
+      margin-bottom: 30px
+
+    .icon-list
+      margin-left: 0
+
+    .more-link
+      margin-left: 61px
 
