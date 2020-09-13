@@ -37,9 +37,14 @@ section
   letter-spacing: 1.2px
   text-transform: uppercase
 
-.section-title
+.hero-title
   font-size: 48px
   line-height: 63px
+  font-weight: 300
+
+.section-title
+  font-size: 48px
+  line-height: 56px
   font-weight: 300
 
 .body-text
@@ -94,9 +99,15 @@ section
   text-transform: uppercase
   letter-spacing: 1.4px
   display: inline-flex
+  align-items: center
+  transition: color .2s
 
   .link-text
-    margin-left: 4px
+    margin-right: 4px
+
+  .arrow-icon
+    margin-bottom: 1px
+    transition: fill .2s
 
 .icon-list
   display: flex
@@ -104,7 +115,11 @@ section
   margin-bottom: 37px
 
   .icon-list-item
-    width: 90px
+    width: 180px
+    padding: 0 15px
+
+    &:first-child
+      margin-left: -15px
 
   .icon-wrap
     @include flex-align(center, center)
@@ -133,6 +148,11 @@ section
     > .inner-wrap
       @include tablet-side-padding
 
+  .section-title
+    font-size: 32px
+    line-height: 40px
+    letter-spacing: 1.6px
+
 
 @media only screen and (max-width: 767px)
 
@@ -148,9 +168,14 @@ section
     line-height: 14px
     letter-spacing: 1px
 
-  .section-title
+  .hero-title
     font-size: 36px
     line-height: 48px
+
+  .section-title
+    font-size: 24px
+    line-height: 32px
+    letter-spacing: 0
 
   .body-text
     letter-spacing: 1px
