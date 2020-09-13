@@ -27,9 +27,7 @@ class WGP_Home_Hero extends Widget_Base
         register_common_controls($this, [
             ['section_tagline', 'Section Tagline', Controls_Manager::TEXTAREA],
             ['section_title', 'Section Title', Controls_Manager::TEXTAREA],
-            ['body_text', 'Body Text', Controls_Manager::TEXTAREA, ['rows' => 6]],
-            ['button_text', 'Button Text', Controls_Manager::TEXT],
-            ['button_link', 'Button Link', Controls_Manager::URL],
+            ['body_text', 'Body Text', Controls_Manager::TEXTAREA, ['rows' => 6]]
         ]);
     }
 
@@ -45,7 +43,7 @@ class WGP_Home_Hero extends Widget_Base
             <div class="inner-wrap">
                 <header class="section-header">
                     <p class="section-tagline"><?php echo $settings['section_tagline']; ?></p>
-                    <h2 class="section-title"><?php echo $settings['section_title']; ?></h2>
+                    <h2 class="hero-title"><?php echo $settings['section_title']; ?></h2>
                 </header>
                 <div class="section-img-wrap">
                     <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/home-hero.svg" class="section-img">
