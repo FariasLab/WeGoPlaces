@@ -13,7 +13,40 @@ Redux::set_args( $opt_name, [
     'dev_mode' => false
 ] );
 
-Redux::set_section( $opt_name, array(
+$pages = get_pages();
+$page_options = [];
+foreach ($pages as $page) $page_options[$page->ID] = $page->post_title;
+
+Redux::set_section( $opt_name, [
+    'title'  => esc_html__( 'General', 'wgp' ),
+    'desc'  => esc_html__( 'Edit common content from multiple pages in one place here.', 'wgp' ),
+    'id'     => 'general',
+    'fields' => [
+        [
+            'id' => 'quote_section_start',
+            'type' => 'section',
+            'title' => esc_html__( 'Ask for a Quote Button', 'wgp' ),
+            'indent' => true
+        ], [
+            'id' => 'quote_btn_text',
+            'type' => 'text',
+            'title' => esc_html__( 'Button Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: Ask for a Quote', 'wgp' )
+        ], [
+            'id' => 'quote_page_id',
+            'type' => 'select',
+            'title' => esc_html__( 'Button Link', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: Contact', 'wgp' ),
+            'options' => $page_options
+        ], [
+            'id' => 'quote_section_end',
+            'type' => 'section',
+            'indent' => false
+        ]
+    ]
+]);
+
+Redux::set_section( $opt_name, [
     'title'  => esc_html__( 'Header & Footer', 'wgp' ),
     'desc'  => esc_html__( 'Edit common content from the header and footer in one place here.', 'wgp' ),
     'id'     => 'header_footer',
@@ -70,4 +103,4 @@ Redux::set_section( $opt_name, array(
             'indent' => false
         ]
     ]
-) );
+]);
