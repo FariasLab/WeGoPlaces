@@ -27,6 +27,7 @@ class WGP_Home_Translation extends Widget_Base
         register_common_controls($this, [
             ['section_tagline', 'Section Tagline', Controls_Manager::TEXTAREA],
             ['section_title', 'Section Title', Controls_Manager::TEXTAREA],
+            ['section_title_mobile', 'Section Title on Mobile', Controls_Manager::TEXTAREA],
             ['icon1_text', 'Icon 1 Text', Controls_Manager::TEXT],
             ['icon2_text', 'Icon 2 Text', Controls_Manager::TEXT],
             ['icon3_text', 'Icon 3 Text', Controls_Manager::TEXT],
@@ -53,7 +54,10 @@ class WGP_Home_Translation extends Widget_Base
         <section class="wgp-home-translation">
             <div class="inner-wrap">
                 <p class="section-tagline"><?php echo $settings['section_tagline']; ?></p>
-                <h2 class="section-title"><?php echo $settings['section_title']; ?></h2>
+                <h2 class="section-title">
+                    <span class="desktop"><?php echo $settings['section_title']; ?></span>
+                    <span class="mobile"><?php echo $settings['section_title_mobile']; ?></span>
+                </h2>
                 <div class="section-img-wrap">
                     <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/home-translation.svg" class="section-img">
                 </div>
