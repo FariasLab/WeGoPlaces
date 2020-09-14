@@ -1,0 +1,83 @@
+// WGP Home Page Translation Section
+
+.wgp-home-translation
+
+  > .inner-wrap
+    @include desktop-side-padding(38px)
+    position: relative
+
+  .section-tagline
+    margin-bottom: 11px
+
+  .section-title
+    max-width: 720px
+    margin-bottom: 29px
+
+  .section-img-wrap
+    position: absolute
+    right: 24px
+    top: 0
+    width: 416px
+
+  .icon-wrap:before
+    background: $wgp-orange
+
+  .more-link
+    color: $wgp-orange
+
+    .arrow-icon
+      fill: $wgp-orange
+
+    &:hover, &:active
+      color: $wgp-orange-hover
+
+      .arrow-icon
+        fill: $wgp-orange-hover
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-home-translation
+
+    > .inner-wrap
+      @include tablet-side-padding(16px)
+
+    .section-tagline
+      margin-bottom: 3px
+
+    .section-title
+      margin-bottom: 23px
+
+    .section-img-wrap
+      right: auto
+      left: -11px
+      top: 97px
+      width: 394px
+
+    .more-link
+      margin-left: 437px
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-home-translation
+
+    > .inner-wrap
+      @include mobile-side-padding(28px)
+
+    .section-tagline
+      margin-bottom: 6px
+
+    .section-title
+      margin-bottom: 16px
+
+    .section-img-wrap
+      position: relative
+      left: auto
+      top: auto
+      width: 100%
+      max-width: 394px
+      margin-bottom: 30px
+
+    .more-link
+      margin-left: 61px
