@@ -17,6 +17,9 @@ $pages = get_pages();
 $page_options = [];
 foreach ($pages as $page) $page_options[$page->ID] = $page->post_title;
 
+
+// General Section
+
 Redux::set_section( $opt_name, [
     'title'  => esc_html__( 'General', 'wgp' ),
     'desc'  => esc_html__( 'Edit common content from multiple pages in one place here.', 'wgp' ),
@@ -45,6 +48,9 @@ Redux::set_section( $opt_name, [
         ]
     ]
 ]);
+
+
+// Header & Footer Section
 
 Redux::set_section( $opt_name, [
     'title'  => esc_html__( 'Header & Footer', 'wgp' ),
@@ -103,4 +109,61 @@ Redux::set_section( $opt_name, [
             'indent' => false
         ]
     ]
+]);
+
+
+// Testimonials Section
+
+$testimonial_fields = [
+    [
+        'id' => 'testimonials_section_start',
+        'type' => 'section',
+        'title' => '&nbsp;',
+        'indent' => true
+    ]
+];
+
+for ($i = 1; $i <= 6; $i++) {
+    $testimonial_fields[] = [
+        'id' => "testimonial_text_$i",
+        'type' => 'editor',
+        'title' => esc_html__( "Testimonial $i", 'wgp' ),
+        'subtitle' => esc_html__( 'Enter your clients quote here', 'wgp' ),
+        'args' => [
+            'media_buttons' => false,
+            'textarea_rows' => 6
+        ]
+    ];
+    $testimonial_fields[] = [
+        'id' => "testimonial_author_$i",
+        'type' => 'text',
+        'title' => esc_html__( 'Author Name', 'wgp' ),
+        'subtitle' => esc_html__( "of Testimonial $i", 'wgp' )
+    ];
+    $testimonial_fields[] = [
+        'id' => "testimonial_company_$i",
+        'type' => 'text',
+        'title' => esc_html__( 'Author Company', 'wgp' ),
+        'subtitle' => esc_html__( "of Testimonial $i", 'wgp' )
+    ];
+    $testimonial_fields[] = [
+        'id' => "testimonial_divider_$i",
+        'type' => 'raw',
+        'content' => '<div style="height: 30px"></div>'
+    ];
+}
+
+$testimonial_fields[] = [
+    [
+        'id' => 'testimonials_section_end',
+        'type' => 'section',
+        'indent' => false
+    ]
+];
+
+Redux::set_section( $opt_name, [
+    'title'  => esc_html__( 'Testimonials', 'wgp' ),
+    'desc'  => esc_html__( 'Edit testimonials shown in the Home Page and Clients Page in one place here.', 'wgp' ),
+    'id'     => 'testimonials',
+    'fields' => $testimonial_fields
 ]);
