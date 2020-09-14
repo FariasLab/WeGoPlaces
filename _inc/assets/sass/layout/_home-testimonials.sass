@@ -1,13 +1,13 @@
 // WGP Home Page Testimonials Section
 
 .wgp-home-testimonials
+  letter-spacing: 1.2px
 
   > .inner-wrap
     @include desktop-side-padding(37px)
 
   .testimonial-list
     width: 720px
-    letter-spacing: 1.2px
 
   .testimonial-list-item
     position: relative
@@ -45,3 +45,70 @@
     font-size: 14px
     line-height: 17px
     font-weight: 800
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-home-testimonials
+    padding: 21px 0 60px
+
+    > .inner-wrap
+      @include tablet-side-padding(23px)
+
+    .testimonial-list
+      width: 100%
+
+    .testimonial-list-item:not(:last-child)
+      margin-bottom: 100px
+
+    .author-wrap
+      left: 40px
+      bottom: auto
+      top: calc(100% - 20px)
+
+    .author-company
+      letter-spacing: 1px
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-home-testimonials
+    letter-spacing: 1px
+    padding: 0
+
+    > .inner-wrap
+      @include mobile-side-padding(33px)
+
+    .testimonial-list-item
+      background: transparent
+
+      &:not(:last-child)
+        margin-bottom: 42px
+
+      &:after
+        @include content-block
+        position: absolute
+        left: -10px
+        bottom: 44px
+        width: 76px
+        border-top: 2px solid $wgp-grey-border
+
+    .icon-quote
+      left: 0
+      top: 0
+
+    .testimonial-text
+      padding: 26px 0 17px 10px
+      letter-spacing: 1px
+
+    .author-wrap
+      position: relative
+      left: auto
+      top: auto
+      padding: 0 0 0 10px
+
+    .author-company
+      font-size: 11px
+      line-height: 14px
+      margin-top: 0
+
