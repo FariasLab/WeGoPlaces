@@ -16,6 +16,7 @@ add_action( 'elementor/widgets/widgets_registered', function() {
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-hero.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-training.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-translation.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/home-testimonials.php' );
 });
 
 

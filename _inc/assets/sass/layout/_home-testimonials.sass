@@ -1,0 +1,47 @@
+// WGP Home Page Testimonials Section
+
+.wgp-home-testimonials
+
+  > .inner-wrap
+    @include desktop-side-padding(37px)
+
+  .testimonial-list
+    width: 720px
+    letter-spacing: 1.2px
+
+  .testimonial-list-item
+    position: relative
+    background: $wgp-grey-bg
+    border-radius: 16px
+
+    &:not(:last-child)
+      margin-bottom: 16px
+
+  .icon-quote
+    position: absolute
+    left: 10px
+    top: 11px
+    width: 48px
+
+  .testimonial-text
+    padding: 33px 60px 33px 40px
+    position: relative
+
+  .author-wrap
+    position: absolute
+    bottom: 24px
+    left: 676px
+    padding: 17px 23px 20px
+    background: #fff
+    border-radius: 8px
+
+  .author-name
+    white-space: nowrap
+
+  .author-company
+    white-space: nowrap
+    margin-top: -2px
+    text-transform: uppercase
+    font-size: 14px
+    line-height: 17px
+    font-weight: 800
