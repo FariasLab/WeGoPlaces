@@ -3,6 +3,18 @@ document.addEventListener('DOMContentLoaded', function() {
     function init() {
         window.initSiteHeaderById = initSiteHeaderById;
         window.dispatchEvent(new CustomEvent('siteHeaderReadyToInit'));
+
+        /*
+        new Swiper('.logos-slider', {
+            slidesPerView: 6,
+            speed: 500,
+            loop: true,
+            grabCursor: true,
+            breakpoints: {
+                767:
+            }
+        });
+         */
     }
 
     function initSiteHeaderById(widgetId) {
