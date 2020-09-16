@@ -154,11 +154,9 @@ for ($i = 1; $i <= 6; $i++) {
 }
 
 $testimonial_fields[] = [
-    [
-        'id' => 'testimonials_section_end',
-        'type' => 'section',
-        'indent' => false
-    ]
+    'id' => 'testimonials_section_end',
+    'type' => 'section',
+    'indent' => false
 ];
 
 Redux::set_section( $opt_name, [
@@ -166,4 +164,39 @@ Redux::set_section( $opt_name, [
     'desc'  => esc_html__( 'Edit testimonials shown in the Home Page and Clients Page in one place here.', 'wgp' ),
     'id'     => 'testimonials',
     'fields' => $testimonial_fields
+]);
+
+
+// Client Logos
+
+$client_fields = [
+    [
+        'id' => 'clients_section_start',
+        'type' => 'section',
+        'title' => '&nbsp;',
+        'indent' => true
+    ]
+];
+
+for ($i = 1; $i <= 6; $i++) {
+    $client_fields[] = [
+        'id' => "client_logo_$i",
+        'type' => 'media',
+        'title' => esc_html__( "Client Logo $i", 'wgp' ),
+        'subtitle' => esc_html__( 'Upload logo image in jpg/png', 'wgp' ),
+        'library_filter' => ['jpg', 'png']
+    ];
+}
+
+$client_fields[] = [
+    'id' => 'client_section_end',
+    'type' => 'section',
+    'indent' => false
+];
+
+Redux::set_section( $opt_name, [
+    'title'  => esc_html__( 'Clients', 'wgp' ),
+    'desc'  => esc_html__( 'Edit client logos shown in the Home Page and Clients Page in one place here.', 'wgp' ),
+    'id'     => 'clients',
+    'fields' => $client_fields
 ]);
