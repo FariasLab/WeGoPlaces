@@ -39,11 +39,13 @@ class WGP_Home_Clients extends Widget_Base
             <div class="inner-wrap">
                 <p class="section-tagline"><?php echo $settings['section_tagline']; ?></p>
                 <h2 class="section-title"><?php echo $settings['section_title']; ?></h2>
-                <?php // var_dump($WGP['client_logo_1']); ?>
                 <ul class="logos-list">
                     <?php for ($i = 1; $i <= 6; $i++) { ?>
                         <li class="logos-list-item">
-
+                            <?php $img_id = intval($WGP["client_logo_$i"]['id']);
+                            $img_src = wp_get_attachment_image_src($img_id, 'wgp_200x200')[0];
+                            $img_width = $WGP["client_logo_width_$i"] . '%'; ?>
+                            <img src="<?php echo $img_src; ?>" style="width:<?php echo $img_width;?>" class="logo-img">
                         </li>
                     <?php } ?>
                 </ul>

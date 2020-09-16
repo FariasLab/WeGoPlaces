@@ -1,0 +1,71 @@
+// WGP Home Page Clients Section
+
+.wgp-home-clients
+  padding-bottom: 40px
+
+  > .inner-wrap
+    @include desktop-side-padding(40px)
+
+  .section-tagline
+    margin-bottom: 11px
+
+  .section-title
+    margin-bottom: 38px
+
+  .logos-list
+    display: flex
+    flex-wrap: wrap
+
+  .logos-list-item
+    @include flex-align(center, center)
+    width: 120px
+    height: 120px
+    border: 1px solid $wgp-grey-bg
+    border-radius: 24px 2px
+    padding: 10px
+
+    &:not(:last-child)
+      margin: 0 16px 16px 0
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-home-clients > .inner-wrap
+    @include tablet-side-padding(40px)
+
+
+@media only screen and (max-width: 1024px)
+
+  .wgp-home-clients
+
+    > .inner-wrap
+      @include tablet-side-padding(24px)
+
+    .section-tagline
+      margin-bottom: 3px
+
+    .section-title
+      margin-bottom: 23px
+
+    .logos-list-item
+      width: 90px
+      height: 90px
+      padding: 7.5px
+
+      &:not(:last-child)
+        margin: 0 10px 10px 0
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-home-clients
+    padding-bottom: 37px
+
+    > .inner-wrap
+      @include mobile-side-padding(27px)
+
+    .section-tagline
+      margin-bottom: 12px
+
+    .section-title
+      margin-bottom: 20px
