@@ -2,7 +2,7 @@
 
 // Imports & Misc Required Files
 
-use Elementor\Plugin;
+use Elementor\Plugin as EP;
 
 require_once get_template_directory() . '/_inc/classes/class-tgm-plugin-activation.php';
 require_once get_template_directory() . '/_inc/partials/redux-config.php';
@@ -17,6 +17,7 @@ add_action( 'elementor/widgets/widgets_registered', function() {
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-training.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-translation.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-testimonials.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/home-clients.php' );
 });
 
 
@@ -60,8 +61,13 @@ add_action( 'after_setup_theme', function() {
     add_theme_support( 'header-footer-elementor' );
 
     add_theme_support( 'post-thumbnails' );
-    // set_post_thumbnail_size( 1200, 9999 );
-    // add_image_size( 'o_fullscreen', 1980, 9999 );
+    add_image_size( 'wgp_656x366', 656, 366, true ); // post single
+    add_image_size( 'wgp_1312x732', 1312, 732, true ); // post single 2x
+    add_image_size( 'wgp_360x202', 360, 202, true ); // blog page + all mobile post thumbs
+    add_image_size( 'wgp_720x404', 720, 404, true ); // blog page 2x
+    add_image_size( 'wgp_1023x654', 1023, 654, true ); // home blog
+    add_image_size( 'wgp_200x200', 200, 200, false ); // client logos 2x
+    add_image_size( 'wgp_160x160', 160, 160, true ); // avatar 2x
 
     add_theme_support(
         'html5', [
@@ -79,14 +85,14 @@ add_action( 'after_setup_theme', function() {
 
 // Categories for Custom Elementor Widgets
 add_action( 'elementor/init', function() {
-    Plugin::$instance->elements_manager->add_category('wgp_header_footer', ['title' => __( 'WGP Header & Footer', 'wgp' )]);
-    Plugin::$instance->elements_manager->add_category('wgp_home_page', ['title' => __( 'WGP Home Page', 'wgp' )]);
-    Plugin::$instance->elements_manager->add_category('wgp_about_page', ['title' => __( 'WGP About Page', 'wgp' )]);
-    Plugin::$instance->elements_manager->add_category('wgp_courses_page', ['title' => __( 'WGP Courses Page', 'wgp' )]);
-    Plugin::$instance->elements_manager->add_category('wgp_translation_page', ['title' => __( 'WGP Translation Page', 'wgp' )]);
-    Plugin::$instance->elements_manager->add_category('wgp_clients_page', ['title' => __( 'WGP Clients Page', 'wgp' )]);
-    Plugin::$instance->elements_manager->add_category('wgp_blog_page', ['title' => __( 'WGP Blog Page', 'wgp' )]);
-    Plugin::$instance->elements_manager->add_category('wgp_contact_page', ['title' => __( 'WGP Contact Page', 'wgp' )]);
+    EP::$instance->elements_manager->add_category('wgp_header_footer', ['title' => __( 'WGP Header & Footer', 'wgp' )]);
+    EP::$instance->elements_manager->add_category('wgp_home_page', ['title' => __( 'WGP Home Page', 'wgp' )]);
+    EP::$instance->elements_manager->add_category('wgp_about_page', ['title' => __( 'WGP About Page', 'wgp' )]);
+    EP::$instance->elements_manager->add_category('wgp_courses_page', ['title' => __( 'WGP Courses Page', 'wgp' )]);
+    EP::$instance->elements_manager->add_category('wgp_translation_page', ['title' => __( 'WGP Translation Page', 'wgp' )]);
+    EP::$instance->elements_manager->add_category('wgp_clients_page', ['title' => __( 'WGP Clients Page', 'wgp' )]);
+    EP::$instance->elements_manager->add_category('wgp_blog_page', ['title' => __( 'WGP Blog Page', 'wgp' )]);
+    EP::$instance->elements_manager->add_category('wgp_contact_page', ['title' => __( 'WGP Contact Page', 'wgp' )]);
 });
 
 
@@ -97,20 +103,34 @@ add_action( 'elementor/editor/before_enqueue_scripts', function() {
 });
 
 
-// Enqueue Styles and Scripts
+// Prevent Elementor from loading Google Fonts
+add_filter( 'elementor/frontend/print_google_fonts', '__return_false' );
+
+
+// Prevent Elementor form loading Font Awesome
+add_action( 'elementor/frontend/after_register_styles', function() {
+    foreach( [ 'solid', 'regular', 'brands' ] as $style ) {
+        wp_deregister_style( 'elementor-icons-fa-' . $style );
+    }
+}, 20 );
+
+
+// Enqueue CSS
 add_action( 'wp_enqueue_scripts', function () {
     $theme_version = wp_get_theme()->get( 'Version' );
-
-    // Styles
     wp_enqueue_style( 'wgp-style', get_stylesheet_uri(), [], $theme_version );
-    // wp_add_inline_style( 'o-style', o_get_customizer_css( 'front-end' ) );
-
-    // Scripts
-    if ( ( ! is_admin() ) && is_singular() && comments_open() && get_option( 'thread_comments' ) )
-        wp_enqueue_script( 'comment-reply' );
-    wp_enqueue_script( 'wgp-script', get_template_directory_uri() . '/_inc/assets/js/script.js', [], $theme_version, true );
-    // wp_script_add_data( 'o-script', 'async', true );
 });
+
+
+// Enqueue JS
+add_action( 'elementor/frontend/before_enqueue_scripts', function() {
+    $theme_version = wp_get_theme()->get( 'Version' );
+    wp_deregister_script( 'swiper');
+    wp_register_script('swiper', get_template_directory_uri() . '/_inc/assets/js/swiper.min.js', [], '4.5.1', true);
+    wp_enqueue_script('wgp-script', get_template_directory_uri() . '/_inc/assets/js/script.js', [
+        'swiper'
+    ], $theme_version, true);
+}, 20 );
 
 
 // Navigation Menus
