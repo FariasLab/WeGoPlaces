@@ -1,0 +1,132 @@
+// WGP Home Page Blog Section
+
+.wgp-home-blog
+
+  .inner-wrap
+    padding: 0
+    display: flex
+
+    > *
+      @include desktop-side-padding(72px)
+      width: 50%
+
+  .section-header
+    @include flex-align(center)
+    flex-direction: column
+    position: relative
+    min-height: 654px
+
+  .section-img-wrap
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+
+  .section-img
+    object-fit: cover
+    width: 100%
+    height: 100%
+
+  .blog-title, .blog-tagline
+    position: relative
+
+  .blog-title
+    width: 313px
+
+  .blog-tagline
+    letter-spacing: 1.2px
+    color: #fff
+
+  .inner-wrap > .posts-list
+    @include flex-align(center)
+    flex-direction: column
+    padding-left: 44px
+
+  .posts-list-item:not(:last-child)
+    margin-bottom: 27px
+
+  .post-title
+    font-size: 32px
+    line-height: 40px
+    letter-spacing: 1.6px
+    font-weight: 300
+    margin-bottom: 8px
+
+  .post-date
+    letter-spacing: 1.2px
+    margin-bottom: 13px
+
+  .more-link
+    color: $wgp-green
+
+    .arrow-icon
+      fill: $wgp-green
+
+    &:hover, &:active
+      color: $wgp-green-hover
+
+      .arrow-icon
+        fill: $wgp-green-hover
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-home-blog .inner-wrap
+    > *
+      @include tablet-side-padding(72px)
+
+    > .posts-list
+      padding-left: calc(100% * 44 / 1240)
+
+
+@media only screen and (max-width: 1023px)
+
+  .wgp-home-blog
+    color: #fff
+
+    .inner-wrap
+      flex-direction: column
+      position: relative
+      padding: 14px 0 33px
+
+      > *, > .posts-list
+        @include tablet-side-padding(24px)
+        width: 100%
+
+    .section-header
+      min-height: 0
+      position: static
+
+    .posts-list
+      position: relative
+
+    .posts-list-item:not(:last-child)
+      margin-bottom: 21px
+
+    .post-title
+      font-size: 24px
+      line-height: 32px
+      letter-spacing: 1.5px
+      margin-bottom: 2px
+
+    .post-date
+      font-size: 16px
+      line-height: 24px
+      letter-spacing: 1px
+      margin-bottom: 5px
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-home-blog
+
+    .inner-wrap
+      padding: 28px 0 23px
+
+      > *, > .posts-list
+        @include mobile-side-padding(10px)
+
+    .blog-tagline
+      font-size: 20px
+      line-height: 28px
