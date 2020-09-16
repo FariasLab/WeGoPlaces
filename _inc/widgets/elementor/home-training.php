@@ -67,10 +67,12 @@ class WGP_Home_Training extends Widget_Base
                         </li>
                     <?php } ?>
                 </ul>
-                <a href="<?php echo $settings['button_link']['url']; ?>" class="more-link">
-                    <span class="link-text"><?php echo $settings['button_text']; ?></span>
-                    <svg class="arrow-icon"><use xlink:href="#arrow-icon"></svg>
-                </a>
+                <div class="more-link-wrap">
+                    <a href="<?php echo $settings['button_link']['url']; ?>" class="more-link">
+                        <span class="link-text"><?php echo $settings['button_text']; ?></span>
+                        <svg class="arrow-icon"><use xlink:href="#arrow-icon"></svg>
+                    </a>
+                </div>
             </div>
         </section>
 
