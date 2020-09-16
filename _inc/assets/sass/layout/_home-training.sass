@@ -5,29 +5,29 @@
 
   > .inner-wrap
     @include desktop-side-padding(34px)
+    @include flex-align(null, flex-end)
+    flex-direction: column
     position: relative
 
+    > *
+      width: 720px
+
   .section-tagline
-    margin: 0 0 11px 360px
+    margin-bottom: 11px
 
   .section-title
-    max-width: 720px
-    margin: 0 0 29px 360px
+    margin-bottom: 29px
 
   .section-img-wrap
     position: absolute
-    left: -21px
+    right: 841px
     top: 82px
     width: 420px
-
-  .icon-list
-    margin-left: 360px
 
   .icon-wrap:before
     background: $wgp-darkorange
 
   .more-link
-    margin-left: 360px
     color: $wgp-darkorange
 
     .arrow-icon
@@ -42,11 +42,21 @@
 
 @media only screen and (max-width: 1239px)
 
+  .wgp-home-training > .inner-wrap
+    @include tablet-side-padding(34px)
+
+
+@media only screen and (max-width: 1023px)
+
   .wgp-home-training
     padding-top: 36px
 
     > .inner-wrap
       @include tablet-side-padding(16px)
+      display: block
+
+      > *
+        width: auto
 
     .section-tagline
       margin: 0 0 3px 0
@@ -57,6 +67,8 @@
     .section-img-wrap
       top: 147px
       width: 404px
+      left: -21px
+      right: auto
 
     .icon-list
       margin-left: 376px

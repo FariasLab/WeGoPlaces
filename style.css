@@ -297,11 +297,13 @@ section > .inner-wrap {
 }
 
 @media only screen and (max-width: 1239px) {
-  section {
-    overflow: visible;
-  }
   section > .inner-wrap {
     padding: 0 calc(100% * 48 / 768);
+  }
+}
+@media only screen and (max-width: 1023px) {
+  section {
+    overflow: visible;
   }
 
   .section-title {
@@ -651,6 +653,10 @@ section > .inner-wrap {
 @media only screen and (max-width: 1239px) {
   .wgp-site-footer .inner-wrap {
     padding: 32px calc(100% * 48 / 768);
+  }
+}
+@media only screen and (max-width: 1023px) {
+  .wgp-site-footer .inner-wrap {
     align-items: center;
   }
   .wgp-site-footer .footer-menu {
@@ -692,23 +698,34 @@ section > .inner-wrap {
 }
 .wgp-home-hero .section-img-wrap {
   position: absolute;
-  width: 509px;
-  right: -29px;
+  max-width: 509px;
+  width: calc(100vw - 760px);
+  overflow: hidden;
+  left: 760px;
   top: 35px;
 }
 .wgp-home-hero .section-img {
-  width: 100%;
+  width: 509px;
+  max-width: none;
 }
 .wgp-home-hero .body-text {
   margin-bottom: 33px;
 }
 
 @media only screen and (max-width: 1239px) {
+  .wgp-home-hero > .inner-wrap {
+    padding: 36px calc(100% * 48 / 768);
+  }
+}
+@media only screen and (max-width: 1023px) {
   .wgp-home-hero {
     margin-bottom: 40px;
   }
   .wgp-home-hero > .inner-wrap {
     padding: 0 calc(100% * 48 / 768);
+  }
+  .wgp-home-hero > .inner-wrap > * {
+    max-width: none;
   }
   .wgp-home-hero .section-header {
     padding-top: 24px;
@@ -717,9 +734,12 @@ section > .inner-wrap {
   .wgp-home-hero .section-img-wrap {
     position: relative;
     top: auto;
-    right: auto;
+    left: auto;
     width: 444px;
     margin-bottom: 32px;
+  }
+  .wgp-home-hero .section-img-wrap {
+    width: 100%;
   }
   .wgp-home-hero .body-text {
     margin: 0;
@@ -766,29 +786,30 @@ section > .inner-wrap {
 }
 .wgp-home-training > .inner-wrap {
   padding: 34px 80px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
   position: relative;
 }
+.wgp-home-training > .inner-wrap > * {
+  width: 720px;
+}
 .wgp-home-training .section-tagline {
-  margin: 0 0 11px 360px;
+  margin-bottom: 11px;
 }
 .wgp-home-training .section-title {
-  max-width: 720px;
-  margin: 0 0 29px 360px;
+  margin-bottom: 29px;
 }
 .wgp-home-training .section-img-wrap {
   position: absolute;
-  left: -21px;
+  right: 841px;
   top: 82px;
   width: 420px;
-}
-.wgp-home-training .icon-list {
-  margin-left: 360px;
 }
 .wgp-home-training .icon-wrap:before {
   background: #FF5100;
 }
 .wgp-home-training .more-link {
-  margin-left: 360px;
   color: #FF5100;
 }
 .wgp-home-training .more-link .arrow-icon {
@@ -802,11 +823,20 @@ section > .inner-wrap {
 }
 
 @media only screen and (max-width: 1239px) {
+  .wgp-home-training > .inner-wrap {
+    padding: 34px calc(100% * 48 / 768);
+  }
+}
+@media only screen and (max-width: 1023px) {
   .wgp-home-training {
     padding-top: 36px;
   }
   .wgp-home-training > .inner-wrap {
     padding: 16px calc(100% * 48 / 768);
+    display: block;
+  }
+  .wgp-home-training > .inner-wrap > * {
+    width: auto;
   }
   .wgp-home-training .section-tagline {
     margin: 0 0 3px 0;
@@ -817,6 +847,8 @@ section > .inner-wrap {
   .wgp-home-training .section-img-wrap {
     top: 147px;
     width: 404px;
+    left: -21px;
+    right: auto;
   }
   .wgp-home-training .icon-list {
     margin-left: 376px;
@@ -869,7 +901,7 @@ section > .inner-wrap {
 }
 .wgp-home-translation .section-img-wrap {
   position: absolute;
-  right: 24px;
+  left: 800px;
   top: 0;
   width: 416px;
 }
@@ -890,6 +922,11 @@ section > .inner-wrap {
 }
 
 @media only screen and (max-width: 1239px) {
+  .wgp-home-translation > .inner-wrap {
+    padding: 38px calc(100% * 48 / 768);
+  }
+}
+@media only screen and (max-width: 1023px) {
   .wgp-home-translation > .inner-wrap {
     padding: 16px calc(100% * 48 / 768);
   }
@@ -985,6 +1022,11 @@ section > .inner-wrap {
 }
 
 @media only screen and (max-width: 1239px) {
+  .wgp-home-testimonials > .inner-wrap {
+    padding: 37px calc(100% * 48 / 768);
+  }
+}
+@media only screen and (max-width: 1023px) {
   .wgp-home-testimonials {
     padding: 21px 0 60px;
   }

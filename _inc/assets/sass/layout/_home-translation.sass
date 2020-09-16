@@ -18,7 +18,8 @@
 
   .section-img-wrap
     position: absolute
-    right: 24px
+    //right: 24px
+    left: 800px
     top: 0
     width: 416px
 
@@ -39,6 +40,12 @@
 
 
 @media only screen and (max-width: 1239px)
+
+  .wgp-home-translation > .inner-wrap
+    @include tablet-side-padding(38px)
+
+
+@media only screen and (max-width: 1023px)
 
   .wgp-home-translation
 

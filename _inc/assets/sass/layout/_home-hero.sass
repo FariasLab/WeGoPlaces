@@ -19,12 +19,15 @@
 
   .section-img-wrap
     position: absolute
-    width: 509px
-    right: -29px
+    max-width: 509px
+    width: calc(100vw - 760px)
+    overflow: hidden
+    left: 760px
     top: 35px
 
   .section-img
-    width: 100%
+    width: 509px
+    max-width: none
 
   .body-text
     margin-bottom: 33px
@@ -32,11 +35,20 @@
 
 @media only screen and (max-width: 1239px)
 
+  .wgp-home-hero > .inner-wrap
+    @include tablet-side-padding(36px)
+
+
+@media only screen and (max-width: 1023px)
+
   .wgp-home-hero
     margin-bottom: 40px
 
     > .inner-wrap
       @include tablet-side-padding
+
+      > *
+        max-width: none
 
     .section-header
       padding-top: 24px
@@ -45,9 +57,12 @@
     .section-img-wrap
       position: relative
       top: auto
-      right: auto
+      left: auto
       width: 444px
       margin-bottom: 32px
+
+    .section-img-wrap
+      width: 100%
 
     .body-text
       margin: 0
