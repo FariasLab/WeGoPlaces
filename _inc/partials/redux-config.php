@@ -186,6 +186,21 @@ for ($i = 1; $i <= 6; $i++) {
         'subtitle' => esc_html__( 'Upload logo image in jpg/png', 'wgp' ),
         'library_filter' => ['jpg', 'png']
     ];
+    $client_fields[] = [
+        'id' => "client_logo_width_$i",
+        'type' => 'slider',
+        'title' => esc_html__( 'Width (%)', 'wgp' ),
+        'subtitle' => esc_html__( "of Client Logo $i", 'wgp' ),
+        'display_value' => 'label',
+        'default' => 80,
+        'min' => 1,
+        'max' => 100
+    ];
+    $client_fields[] = [
+        'id' => "client_divider_$i",
+        'type' => 'raw',
+        'content' => '<div style="height: 30px"></div>'
+    ];
 }
 
 $client_fields[] = [
@@ -195,7 +210,7 @@ $client_fields[] = [
 ];
 
 Redux::set_section( $opt_name, [
-    'title'  => esc_html__( 'Clients', 'wgp' ),
+    'title'  => esc_html__( 'Client Logos', 'wgp' ),
     'desc'  => esc_html__( 'Edit client logos shown in the Home Page and Clients Page in one place here.', 'wgp' ),
     'id'     => 'clients',
     'fields' => $client_fields
