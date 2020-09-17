@@ -38,61 +38,43 @@ class WGP_Site_Header extends Widget_Base
         } ?>
 
         <div class="wgp-site-header">
-            <div class="inner-wrap">
-                <section class="wgp-site-header-expanded">
-                    <div class="inner-wrap">
-                        <div class="logo-wrap">
-                            <a href="<?php echo home_url(); ?>" class="logo-link">
-                                <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/logo-wgp-header.svg" class="logo-img"/>
-                            </a>
-                            <?php get_template_part('_inc/partials/btn-menu-icon'); ?>
+            <section class="wgp-site-header-expanded">
+                <div class="inner-wrap">
+                    <div class="logo-wrap">
+                        <a href="<?php echo home_url(); ?>" class="logo-link">
+                            <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/logo-wgp-header.svg" class="logo-img"/>
+                        </a>
+                        <?php get_template_part('_inc/partials/btn-menu-icon'); ?>
+                    </div>
+                    <nav class="nav-wrap">
+                        <div class="top-wrap">
+                            <?php get_template_part('_inc/partials/hf-phone-link');
+                            get_template_part('_inc/partials/hf-whatsapp-skype');
+                            get_template_part('_inc/partials/hf-instagram-facebook');
+                            get_template_part('_inc/partials/lang-switcher');
+                            get_template_part('_inc/partials/btn-menu-icon'); ?>
                         </div>
-                        <nav class="nav-wrap">
-                            <div class="top-wrap">
-                                <?php get_template_part('_inc/partials/hf-phone-link');
-                                get_template_part('_inc/partials/hf-whatsapp-skype');
-                                get_template_part('_inc/partials/hf-instagram-facebook');
+                        <?php get_template_part('_inc/partials/header-menu'); ?>
+                    </nav>
+                </div>
+            </section>
 
-                                /*wp_nav_menu([
-                                    'menu_class' => 'menu lang-switcher',
-                                    'container' => '',
-                                    'depth' => 1,
-                                    'theme_location' => 'lang_switcher'
-                                ]);*/
+            <section class="wgp-site-header-collapsed">
+                <div class="inner-wrap">
+                    <?php get_template_part('_inc/partials/hf-phone-link');
+                    get_template_part('_inc/partials/hf-whatsapp-skype');
+                    get_template_part('_inc/partials/hf-instagram-facebook');
+                    get_template_part('_inc/partials/header-menu');
+                    get_template_part('_inc/partials/btn-menu-icon'); ?>
+                </div>
+            </section>
 
-                                // Temp Lang Switcher for Testing ?>
-                                <ul class="menu lang-switcher">
-                                    <li class="current-menu-item"><a href="#">Eng</a></li>
-                                    <li><a href="#">Por</a></li>
-                                </ul>
-
-                                <?php get_template_part('_inc/partials/btn-menu-icon'); ?>
-                            </div>
-                            <?php wp_nav_menu([
-                                'menu_class' => 'menu header-menu',
-                                'container' => '',
-                                'depth' => 1,
-                                'theme_location' => 'header'
-                            ]); ?>
-                        </nav>
-                    </div>
-                </section>
-                <section class="wgp-site-header-collapsed">
-                    <div class="inner-wrap">
-                        <?php get_template_part('_inc/partials/hf-phone-link');
-                        get_template_part('_inc/partials/hf-whatsapp-skype');
-                        get_template_part('_inc/partials/hf-instagram-facebook');
-
-                        wp_nav_menu([
-                            'menu_class' => 'menu header-menu',
-                            'container' => '',
-                            'depth' => 1,
-                            'theme_location' => 'header'
-                        ]);
-
-                        get_template_part('_inc/partials/btn-menu-icon'); ?>
-                    </div>
-                </section>
+            <div class="wgp-site-header-dropdown">
+                <?php get_template_part('_inc/partials/lang-switcher');
+                get_template_part('_inc/partials/header-menu'); ?>
+                <a href="#" class="btn-close-dropdown">
+                    <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/icon-close.svg" class="icon-close">
+                </a>
             </div>
         </div>
         <script type="text/javascript">
