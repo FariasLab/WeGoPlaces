@@ -17,7 +17,7 @@ img, svg
 
 .site-wrap
   min-width: 375px
-  min-height: 200vh // temp, originally 100vh
+  min-height: 100vh
   display: flex
   flex-direction: column
 
@@ -158,6 +158,11 @@ section
   section > .inner-wrap
     @include tablet-side-padding
 
+  .hero-title.smaller-on-tablet
+    font-size: 32px
+    line-height: 40px
+    letter-spacing: 1.6px
+
 
 @media only screen and (max-width: 1023px)
 
@@ -199,9 +204,14 @@ section
     line-height: 14px
     letter-spacing: 1px
 
-  .hero-title
+  .hero-title:not(.smaller-on-tablet)
     font-size: 36px
     line-height: 48px
+
+  .hero-title.smaller-on-tablet
+    font-size: 24px
+    line-height: 32px
+    letter-spacing: 0
 
   .section-title
     font-size: 24px
