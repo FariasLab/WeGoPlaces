@@ -1,6 +1,7 @@
 // WGP Home Page Hero Section
 
 .wgp-home-hero
+  padding-top: 24px
   background: $wgp-grey-bg
 
   > .inner-wrap
@@ -35,8 +36,11 @@
 
 @media only screen and (max-width: 1239px)
 
-  .wgp-home-hero > .inner-wrap
-    @include tablet-side-padding(36px)
+  .wgp-home-hero
+    padding-top: 48px
+
+    > .inner-wrap
+      @include tablet-side-padding(36px)
 
 
 @media only screen and (max-width: 1023px)
@@ -76,6 +80,7 @@
 @media only screen and (max-width: 767px)
 
   .wgp-home-hero
+    padding-top: 2px
 
     > .inner-wrap
       @include mobile-side-padding

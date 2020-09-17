@@ -53,10 +53,11 @@
 
 
 .wgp-site-header-expanded
+  padding-top: 24px
 
   .inner-wrap
     @include flex-align(space-between)
-    @include desktop-side-padding(24px)
+    @include desktop-side-padding
 
   .logo-wrap
     @include flex-align(space-between, center)
@@ -115,6 +116,7 @@
 
 
 .wgp-site-header-dropdown
+  display: none
   position: fixed
   margin: -4px -7px 0 0
   width: 184px
@@ -149,6 +151,14 @@
       a
         margin: 0
 
+  .instagram-facebook
+    display: none
+    justify-content: center
+    padding-top: 28px
+
+    .hf-icon-link:first-child
+      margin-right: 32px
+
   .btn-close-dropdown
     @include flex-align(center, center)
     width: 40px
@@ -173,9 +183,10 @@
 @media only screen and (max-width: 1239px)
 
   .wgp-site-header-expanded
+    padding-top: 48px
 
     .inner-wrap
-      @include tablet-side-padding(48px)
+      @include tablet-side-padding
 
     .logo-link
       width: 256px
@@ -193,7 +204,7 @@
     .hf-icons-wrap
       margin-right: 40px
 
-    .instagram-facebook, .header-menu, .lang-switcher
+    .header-menu, .lang-switcher
       display: none
 
   .wgp-site-header-collapsed
@@ -205,6 +216,20 @@
       @include flex-align(flex-end)
       flex-grow: 1
 
+  .wgp-site-header-dropdown
+    display: block
+
+
+@media only screen and (max-width: 1023px)
+
+  .wgp-site-header
+
+    .instagram-facebook
+      display: none
+
+    .wgp-site-header-dropdown .instagram-facebook
+      display: flex
+
 
 @media only screen and (max-width: 767px)
 
@@ -212,13 +237,15 @@
     display: flex
 
   .wgp-site-header-expanded
+    padding-top: 0
 
     .inner-wrap
       flex-direction: column-reverse
       padding: 0
 
     .logo-wrap
-      @include mobile-side-padding(24px)
+      @include mobile-side-padding
+      padding-top: 24px
 
     .nav-wrap
       background: #fff

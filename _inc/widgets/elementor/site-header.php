@@ -71,7 +71,8 @@ class WGP_Site_Header extends Widget_Base
 
             <div class="wgp-site-header-dropdown">
                 <?php get_template_part('_inc/partials/lang-switcher');
-                get_template_part('_inc/partials/header-menu'); ?>
+                get_template_part('_inc/partials/header-menu');
+                get_template_part('_inc/partials/hf-instagram-facebook'); ?>
                 <a href="#" class="btn-close-dropdown">
                     <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/icon-close.svg" class="icon-close">
                 </a>
