@@ -19,6 +19,7 @@ add_action( 'elementor/widgets/widgets_registered', function() {
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-testimonials.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-clients.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-blog.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/about-hero.php' );
 });
 
 

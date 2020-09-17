@@ -1,0 +1,51 @@
+// WGP About Page Hero Section
+
+.wgp-about-hero
+  background: $wgp-grey-bg
+
+  > .inner-wrap
+    @include desktop-side-padding(12px)
+    position: relative
+
+    > *
+      max-width: 710px
+
+  .section-tagline
+    margin-bottom: 12px
+    display: none
+
+  .hero-title
+    padding-bottom: 20px
+
+  .section-img-wrap
+    position: absolute
+    left: 801px
+    bottom: 0
+    max-width: 703px
+    width: calc(100vw - 801px)
+    overflow: hidden
+
+  .section-img
+    width: 703px
+    max-width: none
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-about-hero
+
+    > .inner-wrap
+      @include tablet-side-padding
+
+      > *
+        max-width: 428px
+
+    .hero-title
+      padding-bottom: 31px
+
+
+
+
+@media only screen and (max-width: 1023px)
+
+  //.wgp-about-hero
