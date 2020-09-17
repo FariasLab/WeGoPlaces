@@ -2,9 +2,10 @@
 
 .wgp-about-hero
   background: $wgp-grey-bg
+  padding-top: 4px
 
   > .inner-wrap
-    @include desktop-side-padding(12px)
+    @include desktop-side-padding(32px)
     position: relative
 
     > *
@@ -13,9 +14,6 @@
   .section-tagline
     margin-bottom: 12px
     display: none
-
-  .hero-title
-    padding-bottom: 20px
 
   .section-img-wrap
     position: absolute
@@ -33,19 +31,53 @@
 @media only screen and (max-width: 1239px)
 
   .wgp-about-hero
+    padding-top: 10px
 
     > .inner-wrap
-      @include tablet-side-padding
+      @include tablet-side-padding(31px)
 
       > *
         max-width: 428px
 
-    .hero-title
-      padding-bottom: 31px
+    .section-img-wrap
+      left: 525px
+      max-width: 614px
+      width: calc(100vw - 525px)
 
-
+    .section-img
+      width: 614px
 
 
 @media only screen and (max-width: 1023px)
 
-  //.wgp-about-hero
+  .wgp-about-hero
+
+    .section-img-wrap
+      left: 496px
+      width: calc(100vw - 496px)
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-about-hero
+    padding-top: 21px
+
+    > .inner-wrap
+      @include mobile-side-padding()
+
+    .section-tagline
+      display: block
+
+    .hero-title
+      margin-bottom: 8px
+
+    .section-img-wrap
+      position: relative
+      max-width: 825px
+      left: auto
+      bottom: auto
+      width: calc(100% + 100vw * 20 / 375)
+
+    .section-img
+      width: 825px
+
