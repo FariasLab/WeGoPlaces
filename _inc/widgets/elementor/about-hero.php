@@ -41,7 +41,6 @@ class WGP_About_Hero extends Widget_Base
                 <div class="section-img-wrap">
                     <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/about-hero.svg" class="section-img">
                 </div>
-
             </div>
         </section>
 

@@ -1458,6 +1458,27 @@ section > .inner-wrap {
     width: 825px;
   }
 }
+.wgp-about-summary {
+  padding-top: 3px;
+}
+.wgp-about-summary > .inner-wrap {
+  padding: 54px 80px;
+}
+.wgp-about-summary .columns-wrap {
+  column-count: 2;
+  column-gap: 80px;
+}
+.wgp-about-summary .summary-text {
+  margin-bottom: 27px;
+}
+.wgp-about-summary .signature-img {
+  width: 202px;
+  margin-bottom: 15px;
+}
+.wgp-about-summary .text-below-signature {
+  margin-bottom: 13px;
+}
+
 .hf-phone-link {
   display: inline-block;
   font-size: 24px;
