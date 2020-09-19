@@ -2,6 +2,7 @@
 
 .wgp-about-summary
   padding-top: 3px
+  letter-spacing: 1.2px
 
   > .inner-wrap
     @include desktop-side-padding(54px)
@@ -19,3 +20,44 @@
 
   .text-below-signature
     margin-bottom: 13px
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-about-summary
+
+    > .inner-wrap
+      @include tablet-side-padding(54px)
+
+    .columns-wrap
+      column-gap: calc(100% * 48 / 768)
+
+
+@media only screen and (max-width: 1023px)
+
+  .wgp-about-summary
+    padding-top: 15px
+    letter-spacing: 1px
+    font-size: 16px
+    line-height: 24px
+
+    > .inner-wrap
+      @include tablet-side-padding(27px)
+
+    .columns-wrap
+      column-count: auto
+
+    .summary-text
+      margin-bottom: 18px
+
+    .text-below-signature
+      margin-bottom: 0
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-about-summary
+    padding-top: 7px
+
+    > .inner-wrap
+      @include mobile-side-padding(27px)
