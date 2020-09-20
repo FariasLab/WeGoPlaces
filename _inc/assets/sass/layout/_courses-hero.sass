@@ -1,0 +1,107 @@
+// WGP Courses Page Hero Section
+
+.wgp-courses-hero
+  padding-bottom: 27px
+  background: $wgp-grey-bg
+
+  > .inner-wrap
+    @include desktop-side-padding(36px)
+    position: relative
+
+  .section-tagline
+    display: none
+
+  .section-title
+    margin-bottom: 11px
+    max-width: 720px
+
+  .section-img-wrap
+    position: absolute
+    left: 799px
+    top: 80px
+    width: calc(100vw - 799px)
+    max-width: 431px
+    overflow: hidden
+
+  .section-img
+    width: 431px
+    max-width: none
+
+  .body-text
+    margin-bottom: 33px
+    max-width: 720px
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-courses-hero > .inner-wrap
+    @include tablet-side-padding(36px)
+
+
+@media only screen and (max-width: 1023px)
+
+  .wgp-courses-hero
+    padding-bottom: 0
+    margin-bottom: 40px
+
+    > .inner-wrap
+      @include tablet-side-padding
+
+    .section-title
+      @include flex-align(null, center)
+      padding-top: 36px
+      max-width: calc(100% - 244px)
+      min-height: 156px
+      margin-bottom: 17px
+
+    .section-img-wrap
+      left: auto
+      right: calc(100% * 48 / 768)
+      top: 11px
+      width: calc(100vw - 496px)
+      max-width: 224px
+
+    .section-img
+      width: 224px
+
+    .body-text
+      max-width: none
+      padding-bottom: 65px
+
+    .btn-ask-quote
+      position: absolute
+      bottom: -40px
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-courses-hero
+
+    > .inner-wrap
+      @include mobile-side-padding
+
+    .section-tagline
+      display: block
+      padding-top: 21px
+      margin-bottom: 5px
+
+    .section-title
+      padding: 0
+      max-width: none
+      min-height: 0
+      margin-bottom: 8px
+
+    .section-img-wrap
+      position: relative
+      right: auto
+      top: auto
+      width: 100%
+      max-width: 336px
+      margin: 0 auto 26px
+
+    .section-img
+      width: 100%
+
+    .btn-ask-quote
+      white-space: nowrap
+      left: 50%
+      transform: translateX(-50%)

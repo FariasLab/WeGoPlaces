@@ -21,6 +21,8 @@ add_action( 'elementor/widgets/widgets_registered', function() {
     require_once( get_template_directory() . '/_inc/widgets/elementor/home-blog.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/about-hero.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/about-summary.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/about-team.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/courses-hero.php' );
 });
 
 
