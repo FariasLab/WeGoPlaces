@@ -39,12 +39,7 @@ class WGP_Home_Translation extends Widget_Base
     protected function render() {
 
         $settings = $this->get_settings_for_display();
-        $icon_list = [
-            ['icon' => 'website', 'text' => $settings['icon1_text']],
-            ['icon' => 'manual', 'text' => $settings['icon2_text']],
-            ['icon' => 'brochure', 'text' => $settings['icon3_text']],
-            ['icon' => 'documents', 'text' => $settings['icon4_text']]
-        ];
+        $icons = ['website', 'manual', 'brochure', 'documents'];
 
         if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
             get_template_part('_inc/partials/icon-svg-symbols');
@@ -58,14 +53,14 @@ class WGP_Home_Translation extends Widget_Base
                     <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/home-translation.svg" class="section-img">
                 </div>
                 <ul class="icon-list">
-                    <?php foreach ($icon_list as $item) {
-                        $img_src = get_template_directory_uri() . '/_inc/assets/img/icon-' . $item['icon'] . '.svg';
-                        $img_class = 'icon-img icon-' . $item['icon']; ?>
+                    <?php for ($i = 0; $i < 4; $i++) {
+                        $img_src = get_template_directory_uri() . "/_inc/assets/img/icon-$icons[$i].svg";
+                        $img_class = "icon-img icon-$icons[$i]"; ?>
                         <li class="icon-list-item">
                             <div class="icon-wrap">
                                 <img src="<?php echo $img_src; ?>" class="<?php echo $img_class; ?>">
                             </div>
-                            <div class="icon-text"><?php echo $item['text']; ?></div>
+                            <div class="icon-text"><?php echo $settings['icon' . ($i + 1) . '_text']; ?></div>
                         </li>
                     <?php } ?>
                 </ul>
