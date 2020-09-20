@@ -1,0 +1,201 @@
+// WGP About Page Team Section
+
+.wgp-about-team
+  padding-bottom: 51px
+
+  > .inner-wrap
+    @include desktop-side-padding(27px)
+
+  .section-tagline
+    padding-bottom: 4px
+    margin-bottom: 31px
+    border-bottom: 1px solid $wgp-grey-bg
+
+  .columns-wrap
+    column-count: 2
+    column-gap: 80px
+
+  .team-member
+    margin-bottom: 29px
+    break-inside: avoid-column
+    page-break-inside: avoid
+
+  .avatar-bio-wrap
+    display: flex
+
+  .bio-wrap
+    flex-grow: 1
+    position: relative
+
+  .member-bio
+    letter-spacing: 1.2px
+    height: 84px
+    overflow: hidden
+
+  .more-link-wrap
+    position: absolute
+    right: 0
+    bottom: 0
+    background: #fff
+
+    &:before
+      @include content-block
+      background: #fff
+      background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 75%)
+      width: 150px
+      height: 100%
+      position: absolute
+      right: 100%
+      top: 0
+
+  .more-link
+    color: $wgp-green
+
+    .arrow-icon
+      fill: $wgp-green
+
+    &:hover, &:active
+      color: $wgp-green-hover
+
+      .arrow-icon
+        fill: $wgp-green-hover
+
+
+.wgp-page-overlay
+  visibility: hidden
+  opacity: 0
+  transition: opacity .3s
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  overflow-y: scroll
+  z-index: 100
+  background: rgba(0, 46, 43, .8)
+
+  &.show
+    visibility: visible
+    opacity: 1
+
+  .scrollable-wrap
+    @include flex-align(center, center)
+    @include desktop-side-padding(120px)
+    position: relative
+    width: 100%
+    min-height: 100%
+    transform: translateY(100px)
+    transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+
+  &.show .scrollable-wrap
+    transform: translateY(0)
+
+  .popup-wrap
+    background: #fff
+    width: 720px
+    border-radius: 4px
+    padding: 32px
+    position: relative
+
+  .btn-close-popup
+    display: block
+    position: absolute
+    left: 0
+    top: -56px
+
+    .close-icon
+      width: 24px
+      height: 24px
+      fill: $wgp-green
+      transition: fill .2s
+
+    &:hover .close-icon, &:active .close-icon
+      fill: $wgp-green-hover
+
+  .popup-header
+    @include flex-align(null, center)
+    margin-bottom: 2px
+
+  .member-name
+    flex-grow: 1
+
+  .member-bio
+    margin-left: 93px
+    letter-spacing: 1.2px
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-about-team
+
+    > .inner-wrap
+      @include tablet-side-padding(27px)
+
+    .columns-wrap
+      column-gap: calc(100% * 48 / 768)
+
+  .wgp-page-overlay .scrollable-wrap
+    @include tablet-side-padding(120px)
+
+
+@media only screen and (max-width: 1023px)
+
+  .wgp-about-team
+    padding-bottom: 19px
+
+    .columns-wrap
+      column-count: auto
+
+    .team-member:last-child
+      margin-bottom: 0
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-about-team
+    padding-bottom: 33px
+
+    > .inner-wrap
+      @include mobile-side-padding(27px)
+
+    .section-tagline
+      margin-bottom: 25px
+
+    .member-bio
+      letter-spacing: 1px
+      height: 96px
+      margin-bottom: 9px
+      position: relative
+
+      &:after
+        @include content-block
+        background: #fff
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 75%)
+        width: calc(100% * 150 / 243)
+        height: 24px
+        position: absolute
+        right: 0
+        bottom: 0
+
+    .more-link-wrap
+      position: relative
+      right: auto
+      bottom: auto
+
+      &:before
+        display: none
+
+
+  .wgp-page-overlay
+
+    .scrollable-wrap
+      @include mobile-side-padding(120px)
+
+    .popup-wrap
+      padding: 32px 24px
+
+    .popup-header
+      margin-bottom: 23px
+
+    .member-bio
+      margin-left: 0
