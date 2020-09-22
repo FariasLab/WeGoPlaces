@@ -1,0 +1,64 @@
+// WGP Clients Page Hero Section
+
+.wgp-clients-hero
+  background: $wgp-grey-bg
+  padding-bottom: 6px
+
+  > .inner-wrap
+    @include desktop-side-padding(36px)
+    position: relative
+
+  .section-title
+    margin-bottom: 1px
+    max-width: 720px
+    font-size: 48px
+    line-height: 63px
+    letter-spacing: 0
+
+  .section-img-wrap
+    position: absolute
+    left: 840px
+    top: 20px
+    width: calc(100vw - 840px)
+    max-width: 282px
+    overflow: hidden
+
+  .section-img
+    width: 282px
+    max-width: none
+
+  .body-text
+    font-size: 28px
+    line-height: 37px
+    letter-spacing: 1.4px
+    max-width: 720px
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-clients-hero
+    > .inner-wrap
+      @include tablet-side-padding(36px)
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-clients-hero
+    padding-bottom: 48px
+
+    > .inner-wrap
+      @include mobile-side-padding(21px)
+
+    .section-title
+      font-size: 12px
+      line-height: 14px
+      letter-spacing: 1px
+      font-weight: 800
+      text-transform: uppercase
+      margin-bottom: 12px
+
+    .body-text
+      font-size: 24px
+      line-height: 32px
+      letter-spacing: 0
+
