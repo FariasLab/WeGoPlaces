@@ -23,6 +23,13 @@ add_action( 'elementor/widgets/widgets_registered', function() {
     require_once( get_template_directory() . '/_inc/widgets/elementor/about-summary.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/about-team.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/courses-hero.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/courses-details.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/translation-hero.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/translation-details.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/clients-hero.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/clients-testimonials.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/blog-hero.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/blog-posts.php' );
 });
 
 
@@ -66,11 +73,7 @@ add_action( 'after_setup_theme', function() {
     add_theme_support( 'header-footer-elementor' );
 
     add_theme_support( 'post-thumbnails' );
-    add_image_size( 'wgp_656x366', 656, 366, true ); // post single
-    add_image_size( 'wgp_1312x732', 1312, 732, true ); // post single 2x
-    add_image_size( 'wgp_360x202', 360, 202, true ); // blog page + all mobile post thumbs
-    add_image_size( 'wgp_720x404', 720, 404, true ); // blog page 2x
-    add_image_size( 'wgp_1023x654', 1023, 654, true ); // home blog
+    add_image_size( 'wgp_685x384', 685, 384, true ); // post thumbs
     add_image_size( 'wgp_200x200', 200, 200, false ); // client logos 2x
     add_image_size( 'wgp_160x160', 160, 160, true ); // avatar 2x
 
@@ -151,4 +154,47 @@ add_action( 'init', function () {
 // Icon System SVG Symbols
 add_action('wp_body_open', function () {
     get_template_part('_inc/partials/icon-svg-symbols');
+});
+
+
+// Limit Excerpt Length to 22 Words
+add_filter( 'excerpt_length', function () {
+    return 22;
+}, 999 );
+
+
+// Change Default Excerpt Ellipsis
+add_filter('excerpt_more', function () {
+    return '...';
+});
+
+
+// Track Post Views
+function wgp_set_post_views($post_id) {
+    $count_key = 'wgp_post_views_count';
+    $count = get_post_meta($post_id, $count_key, true);
+    if ($count == '') {
+        delete_post_meta($post_id, $count_key);
+        add_post_meta($post_id, $count_key, '0');
+    } else {
+        $count++;
+        update_post_meta($post_id, $count_key, $count);
+    }
+}
+add_action( 'wp_head', function ($post_id) {
+    if ( !is_single() ) return;
+    if ( empty ( $post_id) ) {
+        global $post;
+        $post_id = $post->ID;
+    }
+    wgp_set_post_views($post_id);
+});
+
+
+//Exclude pages from WordPress Search
+add_filter('pre_get_posts', function ($query) {
+    if (!is_admin() && $query->is_search) {
+        $query->set('post_type', 'post');
+    }
+    return $query;
 });
