@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 226">
+  <defs/>
+  <g transform="translate(0 -8)">
+    <linearGradient id="a" x1="-52.948" x2="-51.76" y1="489.52" y2="489.482" gradientTransform="matrix(1240 0 0 -226 65667 110749)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00c4b7"/>
+      <stop offset=".329" stop-color="#62c640"/>
+      <stop offset=".561" stop-color="#efb701"/>
+      <stop offset=".788" stop-color="#fb3e15"/>
+      <stop offset="1" stop-color="#f10058"/>
+    </linearGradient>
+    <path fill="url(#a)" d="M0 8h1240v226H0z"/>
+    <linearGradient id="b" x1="-51.301" x2="-51.212" y1="490.813" y2="489.907" gradientTransform="matrix(0 186.8934 -551 0 270488 9727.459)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".07"/>
+    </linearGradient>
+    <path fill="url(#b)" d="M0 81.8V234h551c-174.9-45.5-277.9-93.5-309.1-144.1-33.4-54.3-114.1-57-241.9-8.1z"/>
+    <linearGradient id="c" x1="-53.512" x2="-53.671" y1="491.105" y2="490.179" gradientTransform="matrix(0 -207.3909 504 0 -246581.5 -10983.22)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity=".05"/>
+      <stop offset="1" stop-color="#fff" stop-opacity=".05"/>
+    </linearGradient>
+    <path fill="url(#c)" d="M935.5 233.5c-17.2-38.2-66-71.8-146.2-100.9-120.3-43.6-50 70.8-184.9-65.7-89.9-91-147.5-35.5-172.9 166.6h504z"/>
+    <path fill="#fff" d="M941.5 73.4l1.9 1.1c10.9 6.3 14.6 20.2 8.3 31.1-.4.6-.7 1.2-1.2 1.8L846.4 253.5c-7.5 10.5-21.7 13.6-32.9 7.1l-1.9-1.1c-10.9-6.3-14.6-20.2-8.3-31.1.4-.6.7-1.2 1.2-1.8L908.6 80.5c7.5-10.5 21.7-13.6 32.9-7.1z" opacity=".1"/>
+    <path fill="#fff" d="M915.5 74.6c11.9-6.9 27.1-2.9 34 9v.1l47 81.7c6.9 11.9 2.8 27.2-9.1 34.1h-.1c-11.9 6.9-27.1 2.8-34-9v-.1l-47-81.7c-6.8-12-2.7-27.2 9.2-34.1z" opacity=".08"/>
+    <path fill="#fff" d="M1069.5 13.6c11.9-6.9 27.1-2.9 34 9v.1l47 81.7c6.9 11.9 2.8 27.2-9.1 34.1h-.1c-11.9 6.9-27.1 2.8-34-9v-.1l-47-81.7c-6.8-12-2.7-27.2 9.2-34.1z" opacity=".04"/>
+    <path fill="#fff" d="M1094.5 13.4l1.9 1.1c10.9 6.3 14.6 20.2 8.3 31.1-.4.6-.7 1.2-1.2 1.8L999.4 193.5c-7.5 10.5-21.7 13.6-32.9 7.1l-1.9-1.1c-10.9-6.3-14.6-20.2-8.3-31.1.4-.6.7-1.2 1.2-1.8l104.1-146.1c7.5-10.5 21.7-13.6 32.9-7.1z" opacity=".06"/>
+    <path fill="#fff" d="M1245.5-48.6l1.9 1.1c10.9 6.3 14.6 20.2 8.3 31.1-.4.6-.7 1.2-1.2 1.8l-104.1 146.1c-7.5 10.5-21.7 13.6-32.9 7.1l-1.9-1.1c-10.9-6.3-14.6-20.2-8.3-31.1.4-.6.7-1.2 1.2-1.8l104.1-146.1c7.5-10.5 21.7-13.6 32.9-7.1z" opacity=".02"/>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+// WGP Blog Page Hero Section
+
+.wgp-blog-hero
+  @include flex-align(null, center)
+  background: $wgp-green url('_inc/assets/img/blog-hero.svg') no-repeat center
+  background-size: cover
+  height: 226px
+  box-sizing: content-box
+  border-top: 24px solid $wgp-grey-bg
+
+  .blog-title
+    width: 313px
+
+  .blog-tagline
+    letter-spacing: 1.2px
+    color: #fff
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-blog-hero
+    border-top-width: 48px
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-blog-hero
+    height: 172px
+    border-top-width: 24px
+
+    .blog-title
+      width: 235px
