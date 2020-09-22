@@ -215,3 +215,41 @@ Redux::set_section( $opt_name, [
     'id'     => 'clients',
     'fields' => $client_fields
 ]);
+
+
+// Blog Section
+
+Redux::set_section( $opt_name, [
+    'title'  => esc_html__( 'Blog', 'wgp' ),
+    'desc'  => esc_html__( 'Edit common content from blog pages in one place here.', 'wgp' ),
+    'id'     => 'blog',
+    'fields' => [
+        [
+            'id' => 'blog_page_id',
+            'type' => 'select',
+            'title' => esc_html__( 'Blog Page', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: Bea\'s Blog', 'wgp' ),
+            'options' => $page_options
+        ], [
+            'id' => 'blog_tagline',
+            'type' => 'text',
+            'title' => esc_html__( 'Blog Tagline', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: Interesting tips for learning a new language', 'wgp' )
+        ], [
+            'id' => 'all_posts_text',
+            'type' => 'text',
+            'title' => esc_html__( 'All Posts Button Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: All Posts', 'wgp' )
+        ], [
+            'id' => 'search_form_text',
+            'type' => 'text',
+            'title' => esc_html__( 'Search Form Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: Search previous posts', 'wgp' )
+        ], [
+            'id' => 'popular_posts_title',
+            'type' => 'text',
+            'title' => esc_html__( 'Popular Posts Title', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: Popular Posts', 'wgp' )
+        ]
+    ]
+]);
