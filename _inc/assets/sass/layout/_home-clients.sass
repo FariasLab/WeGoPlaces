@@ -1,10 +1,18 @@
 // WGP Home Page Clients Section
 
 .wgp-home-clients
-  padding-bottom: 40px
 
-  > .inner-wrap
-    @include desktop-side-padding(40px)
+  &:not(.clients-page)
+    padding-bottom: 40px
+
+    > .inner-wrap
+      @include desktop-side-padding(40px)
+
+  &.clients-page
+    padding-top: 32px
+
+    > .inner-wrap
+      @include desktop-side-padding(32px)
 
   .section-tagline
     margin-bottom: 11px
@@ -23,6 +31,7 @@
     border: 1px solid $wgp-grey-bg
     border-radius: 24px 2px
     padding: 10px
+    background: #fff
 
     &:not(:last-child)
       margin: 0 16px 16px 0
@@ -30,15 +39,20 @@
 
 @media only screen and (max-width: 1239px)
 
-  .wgp-home-clients > .inner-wrap
-    @include tablet-side-padding(40px)
+  .wgp-home-clients
+
+    &:not(.clients-page) > .inner-wrap
+      @include tablet-side-padding(40px)
+
+    &.clients-page > .inner-wrap
+      @include tablet-side-padding(32px)
 
 
 @media only screen and (max-width: 1024px)
 
   .wgp-home-clients
 
-    > .inner-wrap
+    &:not(.clients-page) > .inner-wrap
       @include tablet-side-padding(24px)
 
     .section-tagline
@@ -59,10 +73,19 @@
 @media only screen and (max-width: 767px)
 
   .wgp-home-clients
-    padding-bottom: 37px
 
-    > .inner-wrap
-      @include mobile-side-padding(27px)
+    &:not(.clients-page)
+      padding-bottom: 37px
+
+      > .inner-wrap
+        @include mobile-side-padding(27px)
+
+    &.clients-page
+      padding: 0 0 16px
+      margin-top: -45px
+
+      > .inner-wrap
+        @include mobile-side-padding
 
     .section-tagline
       margin-bottom: 12px

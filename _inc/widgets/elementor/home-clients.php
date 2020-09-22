@@ -26,7 +26,8 @@ class WGP_Home_Clients extends Widget_Base
     protected function _register_controls() {
         register_common_controls($this, [
             ['section_tagline', 'Section Tagline', Controls_Manager::TEXTAREA],
-            ['section_title', 'Section Title', Controls_Manager::TEXTAREA]
+            ['section_title', 'Section Title', Controls_Manager::TEXTAREA],
+            ['on_clients_page', 'On Clients Page', Controls_Manager::SWITCHER]
         ]);
     }
 
@@ -35,10 +36,14 @@ class WGP_Home_Clients extends Widget_Base
         global $WGP;
         $settings = $this->get_settings_for_display(); ?>
 
-        <section class="wgp-home-clients">
+        <section class="wgp-home-clients <?php echo $settings['on_clients_page'] ? 'clients-page' : ''; ?>">
             <div class="inner-wrap">
-                <p class="section-tagline"><?php echo $settings['section_tagline']; ?></p>
-                <h2 class="section-title"><?php echo $settings['section_title']; ?></h2>
+                <?php if ($settings['section_tagline']) { ?>
+                    <p class="section-tagline"><?php echo $settings['section_tagline']; ?></p>
+                <?php }
+                if ($settings['section_title']) { ?>
+                    <h2 class="section-title"><?php echo $settings['section_title']; ?></h2>
+                <?php } ?>
                 <ul class="logos-list">
                     <?php for ($i = 1; $i <= 6; $i++) { ?>
                         <li class="logos-list-item">
