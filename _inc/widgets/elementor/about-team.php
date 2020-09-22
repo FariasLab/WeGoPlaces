@@ -67,7 +67,11 @@ class WGP_About_Team extends Widget_Base
 
     protected function render() {
 
-        $settings = $this->get_settings_for_display(); ?>
+        $settings = $this->get_settings_for_display();
+
+        if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
+            get_template_part('_inc/partials/icon-svg-symbols');
+        } ?>
 
         <section class="wgp-about-team">
             <div class="inner-wrap">
