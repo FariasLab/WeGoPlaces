@@ -2,6 +2,8 @@
 
 namespace Elementor;
 
+use WP_Query;
+
 if ( ! defined( 'ABSPATH' ) ) exit;
 
 class WGP_Home_Blog extends Widget_Base
@@ -25,14 +27,18 @@ class WGP_Home_Blog extends Widget_Base
 
     protected function _register_controls() {
         register_common_controls($this, [
-            ['blog_tagline', 'Blog Tagline', Controls_Manager::TEXTAREA],
             ['read_link_text', 'Read Link Text', Controls_Manager::TEXT]
         ]);
     }
 
     protected function render() {
 
+        global $WGP;
         $settings = $this->get_settings_for_display();
+        $posts_query = new WP_Query([
+            'post_type' => 'post',
+            'posts_per_page' => 5
+        ]);
 
         if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
             get_template_part('_inc/partials/icon-svg-symbols');
@@ -42,32 +48,36 @@ class WGP_Home_Blog extends Widget_Base
             <div class="inner-wrap">
                 <header class="section-header">
                     <div class="section-img-wrap">
-                        <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img//home-blog.jpg" class="section-img">
+                        <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/home-blog.jpg?v=2" class="section-img">
                     </div>
-                    <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img//blog-title.svg" class="blog-title">
-                    <p class="blog-tagline"><?php echo $settings['blog_tagline']; ?></p>
+                    <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/blog-title.svg" class="blog-title">
+                    <p class="blog-tagline"><?php echo $WGP['blog_tagline']; ?></p>
                 </header>
+
                 <ul class="posts-list">
-                    <?php for ($i = 0; $i < 3; $i++) { ?>
-                        <li class="posts-list-item">
-                            <h3 class="post-title">
-                                Quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            </h3>
-                            <p class="post-date">
-                                Aug 2, 2020
-                            </p>
-                            <a href="#" class="more-link">
-                                <span class="link-text"><?php echo $settings['read_link_text']; ?></span>
-                                <svg class="arrow-icon"><use xlink:href="#arrow-icon"></svg>
-                            </a>
-                        </li>
-                    <?php } ?>
+                    <?php if ($posts_query->have_posts()) {
+                        while ($posts_query->have_posts()) {
+                            $posts_query->the_post(); ?>
+
+                            <li class="posts-list-item">
+                                <h3 class="post-title"><?php the_title(); ?></h3>
+                                <p class="post-date"><?php the_date('M Y'); ?></p>
+                                <a href="<?php the_permalink(); ?>" class="more-link">
+                                    <span class="link-text"><?php echo $settings['read_link_text']; ?></span>
+                                    <svg class="arrow-icon">
+                                        <use xlink:href="#arrow-icon">
+                                    </svg>
+                                </a>
+                            </li>
+
+                        <?php }
+                    } ?>
                 </ul>
             </div>
         </section>
 
-    <?php }
-
+        <?php wp_reset_postdata();
+    }
 }
 
 Plugin::instance()->widgets_manager->register_widget_type( new WGP_Home_Blog() );
