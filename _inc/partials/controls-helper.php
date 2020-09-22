@@ -3,14 +3,10 @@
 use Elementor\Controls_Manager;
 use Elementor\Widget_Base;
 
-function register_common_controls(Widget_Base &$widget, Array $controls = []) {
-    register_section_start($widget);
-
-    foreach ($controls as $control) {
-        register_common_control($widget, $control);
-    }
-
-    register_section_end($widget);
+function register_common_controls(Widget_Base &$widget, Array $controls = [], $section_start = true, $section_end = true) {
+    if ($section_start) register_section_start($widget);
+    foreach ($controls as $control) register_common_control($widget, $control);
+    if ($section_end) register_section_end($widget);
 }
 
 function register_section_start(Widget_Base &$widget) {
