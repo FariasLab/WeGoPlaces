@@ -1,7 +1,6 @@
 // WGP Home Page Testimonials Section
 
 .wgp-home-testimonials
-  letter-spacing: 1.2px
 
   > .inner-wrap
     @include desktop-side-padding(37px)
@@ -9,42 +8,12 @@
   .testimonial-list
     width: 720px
 
-  .testimonial-list-item
-    position: relative
-    background: $wgp-grey-bg
-    border-radius: 16px
-
-    &:not(:last-child)
+    .testimonial-list-item:not(:last-child)
       margin-bottom: 16px
 
-  .icon-quote
-    position: absolute
-    left: 10px
-    top: 11px
-    width: 48px
-
-  .testimonial-text
-    padding: 33px 60px 33px 40px
-    position: relative
-
-  .author-wrap
-    position: absolute
-    bottom: 24px
-    left: 676px
-    padding: 17px 23px 20px
-    background: #fff
-    border-radius: 8px
-
-  .author-name
-    white-space: nowrap
-
-  .author-company
-    white-space: nowrap
-    margin-top: -2px
-    text-transform: uppercase
-    font-size: 14px
-    line-height: 17px
-    font-weight: 800
+    .author-wrap
+      bottom: 24px
+      left: 676px
 
 
 @media only screen and (max-width: 1239px)
@@ -64,16 +33,16 @@
     .testimonial-list
       width: 100%
 
-    .testimonial-list-item:not(:last-child)
-      margin-bottom: 100px
+      .testimonial-list-item:not(:last-child)
+        margin-bottom: 100px
 
-    .author-wrap
-      left: 40px
-      bottom: auto
-      top: calc(100% - 20px)
+      .author-wrap
+        left: 40px
+        bottom: auto
+        top: calc(100% - 20px)
 
-    .author-company
-      letter-spacing: 1px
+      .author-company
+        letter-spacing: 1px
 
 
 @media only screen and (max-width: 767px)
@@ -99,22 +68,22 @@
         width: 76px
         border-top: 2px solid $wgp-grey-border
 
-    .icon-quote
-      left: 0
-      top: 0
+      .icon-quote
+        left: 0
+        top: 0
 
-    .testimonial-text
-      padding: 26px 0 17px 10px
-      letter-spacing: 1px
+      .testimonial-text
+        padding: 26px 0 17px 10px
+        letter-spacing: 1px
 
-    .author-wrap
-      position: relative
-      left: auto
-      top: auto
-      padding: 0 0 0 10px
+      .author-wrap
+        position: relative
+        left: auto
+        top: auto
+        padding: 0 0 0 10px
 
-    .author-company
-      font-size: 11px
-      line-height: 14px
-      margin-top: 0
+      .author-company
+        font-size: 11px
+        line-height: 14px
+        margin-top: 0
 
