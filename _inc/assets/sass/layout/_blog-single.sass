@@ -1,0 +1,112 @@
+// WGP Single Blog Post Page
+
+.wgp-blog-single
+  padding-bottom: 13px
+
+  > .inner-wrap
+    @include desktop-side-padding(60px)
+    @include flex-align(space-between)
+
+  .full-post-wrap
+    width: calc(100% * 656 / 1080)
+
+  .back-link
+    color: $wgp-green
+    text-decoration: none
+    margin-bottom: 27px
+
+    .arrow-icon
+      transform: rotate(180deg)
+      margin-right: 8px
+      fill: $wgp-green
+
+    &:hover, &:active
+      color: $wgp-green-hover
+
+      .arrow-icon
+        fill: $wgp-green-hover
+
+  .thumbnail-wrap
+    border-radius: 8px
+    overflow: hidden
+    margin-bottom: 29px
+    background: $wgp-avatar-bg
+
+  .thumbnail-img
+    max-width: 100%
+
+  .post-title
+    font-size: 48px
+    line-height: 56px
+    font-weight: 300
+    margin-bottom: 12px
+
+  .post-meta
+    @include flex-align(null, center)
+    margin-bottom: 27px
+    font-size: 16px
+    line-height: 20px
+    letter-spacing: 1px
+
+  .avatar-wrap
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    overflow: hidden
+    background: $wgp-avatar-bg
+    margin-right: 8px
+
+  .avatar-img
+    object-fit: cover
+    width: 100%
+    height: 100%
+
+  .post-content
+    letter-spacing: 1.2px
+
+    > *:not(:last-child)
+      margin-bottom: 28px
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-blog-single
+
+    > .inner-wrap
+      @include tablet-side-padding(60px)
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-blog-single
+    padding-bottom: 25px
+
+    > .inner-wrap
+      @include mobile-side-padding(32px)
+      display: block
+
+    .full-post-wrap
+      width: auto
+
+    .back-link
+      margin-bottom: 20px
+
+    .thumbnail-wrap
+      margin-bottom: 32px
+
+    .post-title
+      font-size: 36px
+      line-height: 48px
+      margin-bottom: 7px
+
+    .post-meta
+      font-size: 14px
+      line-height: 18px
+      letter-spacing: .8px
+      margin-bottom: 18px
+
+    .post-content
+      letter-spacing: 1px
+
+      > *:not(:last-child)
+        margin-bottom: 24px
