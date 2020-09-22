@@ -78,6 +78,7 @@ class WGP_Site_Header extends Widget_Base
                 </a>
             </div>
         </div>
+
         <script type="text/javascript">
             if (window.initSiteHeaderById) {
                 window.initSiteHeaderById('<?php echo $this->get_id(); ?>');
