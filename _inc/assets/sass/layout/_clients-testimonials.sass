@@ -1,0 +1,38 @@
+// WGP Clients Page Testimonials Section
+
+.wgp-clients-testimonials
+  padding: 32px 0 0
+
+  .testimonial-list
+    @include flex-align(space-between)
+    flex-wrap: wrap
+
+    .testimonial-list-item
+      width: calc(100% * 500 / 1080)
+      margin-bottom: 100px
+
+    .author-wrap
+      left: 40px
+      top: calc(100% - 20px)
+
+
+@media only screen and (max-width: 1023px)
+
+  .wgp-clients-testimonials
+
+    .testimonial-list
+      display: block
+
+      .testimonial-list-item
+        width: auto
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-clients-testimonials
+
+    .inner-wrap
+      overflow: hidden
+
+    .testimonial-list
+      margin-right: calc(100% * -20 / 375 - 40px)
