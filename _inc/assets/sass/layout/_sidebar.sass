@@ -1,0 +1,53 @@
+// WGP Blog Sidebar
+
+.sidebar-wrap
+  width: calc(100% * 360 / 1080)
+
+  .search-form
+    margin-bottom: 37px
+
+  .popular-posts-title
+    font-size: 14px
+    line-height: 17px
+    font-weight: 800
+    text-transform: uppercase
+    letter-spacing: 1.2px
+    padding-bottom: 4px
+    border-bottom: 1px solid $wgp-grey-bg
+    margin-bottom: 25px
+
+  .popular-posts-list
+    margin-left: 37px
+    font-weight: 800
+
+  .popular-list-item:not(:last-child)
+    margin-bottom: 18px
+
+  .post-link
+    @include flex-align(null, center)
+    font-weight: 300
+    text-decoration: none
+    transition: color .2s
+
+    .link-text
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      margin-right: 8px
+
+    .arrow-icon
+      fill: $wgp-green
+      transition: fill .2s
+      flex-shrink: 0
+
+    &:hover, &:active
+      color: $wgp-green-hover
+
+      .arrow-icon
+        fill: $wgp-green-hover
+
+
+@media only screen and (max-width: 767px)
+
+  .sidebar-wrap
+    display: none
