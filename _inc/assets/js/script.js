@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function() {
         window.initAboutTeamById = initAboutTeamById;
         window.dispatchEvent(new CustomEvent('aboutTeamReadyToInit'));
 
+        // Contact Form Init
+        window.initContactFormById = initContactFormById;
+        window.dispatchEvent(new CustomEvent('contactFormReadyToInit'));
+
         /*
         new Swiper('.logos-slider', {
             slidesPerView: 6,
@@ -20,6 +24,53 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
          */
+    }
+
+    function initContactFormById(widgetId) {
+        const contactForm = document.querySelector(`[data-id="${widgetId}"] .form-wrap`),
+            formElements = contactForm.elements,
+            btnSubmitText = contactForm.querySelector('.btn-submit .btn-text'),
+            xhr = new XMLHttpRequest();
+
+        function initContactForm() {
+            bindContactFormEvents();
+        }
+
+        function bindContactFormEvents() {
+            contactForm.addEventListener('change', function (e) {
+                const closestLabel = e.target.closest('.form-label');
+                if (closestLabel) closestLabel.classList.remove('error-label');
+            });
+            contactForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                btnSubmitText.classList.add('submitting');
+                for (let i = 0; i < formElements.length; i++) formElements[i].disabled = true;
+
+                const formData = new FormData(e.target);
+                let formDataString = new URLSearchParams(formData).toString();
+                formDataString += '&action=contact_form&nonce=' + contactFormAdmin.nonce;
+
+                xhr.onreadystatechange = function() {
+                    if (this.readyState === 4) {
+                        if (this.status === 200) {
+                            // if (this.resposeText === 'Member Exists') {
+                            //     newsletterText.setAttribute('data-show', 'already-subbed');
+                            // } else {
+                            //     newsletterText.setAttribute('data-show', 'success');
+                            // }
+                        } else {
+                            // newsletterText.setAttribute('data-show', 'error');
+                        }
+                    }
+                };
+
+                xhr.open("POST", contactFormAdmin.ajaxUrl, true);
+                xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhr.send(formDataString);
+            });
+        }
+
+        initContactForm();
     }
 
     function initAboutTeamById(widgetId) {
