@@ -30,6 +30,8 @@ add_action( 'elementor/widgets/widgets_registered', function() {
     require_once( get_template_directory() . '/_inc/widgets/elementor/clients-testimonials.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/blog-hero.php' );
     require_once( get_template_directory() . '/_inc/widgets/elementor/blog-posts.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/contact-hero.php' );
+    require_once( get_template_directory() . '/_inc/widgets/elementor/contact-form.php' );
 });
 
 
@@ -135,9 +137,16 @@ add_action( 'elementor/frontend/before_enqueue_scripts', function() {
     $theme_version = wp_get_theme()->get( 'Version' );
     wp_deregister_script( 'swiper');
     wp_register_script('swiper', get_template_directory_uri() . '/_inc/assets/js/swiper.min.js', [], '4.5.1', true);
-    wp_enqueue_script('wgp-script', get_template_directory_uri() . '/_inc/assets/js/script.js', [
+    wp_register_script('wgp-script', get_template_directory_uri() . '/_inc/assets/js/script.js', [
         'swiper'
     ], $theme_version, true);
+
+    wp_localize_script('wgp-script', 'contactFormAdmin', [
+        'ajaxUrl' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('contact_form')
+    ]);
+
+    wp_enqueue_script('wgp-script');
 }, 20 );
 
 
