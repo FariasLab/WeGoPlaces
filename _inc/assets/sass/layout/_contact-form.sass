@@ -1,0 +1,105 @@
+// WGP Contact Page Form Section
+
+.wgp-contact-form
+  padding-bottom: 24px
+
+  > .inner-wrap
+    @include desktop-side-padding(56px)
+    @include flex-align(space-between)
+
+  .form-wrap
+    width: calc(100% * 360 / 1080)
+    min-width: 288px
+
+  .message-label
+    margin-bottom: 23px
+
+  .label-text.required:after
+    content: '*'
+    color: $wgp-darkorange
+
+  p.required
+    font-size: 14px
+    letter-spacing: .8px
+    margin-bottom: 23px
+
+    &:before
+      content: '*'
+      color: $wgp-darkorange
+
+  .btn-text
+
+    &:before
+      @include content-block(attr(data-submit))
+
+    &.submitting:before
+      content: attr(data-submitting)
+
+  .info-wrap
+    width: calc(100% * 540 / 1080)
+
+  .info-title
+    font-weight: 800
+    margin-bottom: 6px
+    letter-spacing: 1.2px
+
+  .info-text
+    margin-bottom: 27px
+
+  .hf-phone-link
+    margin-bottom: 35px
+
+  .whatsapp-skype
+    margin-bottom: 40px
+
+  .alert-wrap
+    display: none
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-contact-form > .inner-wrap
+      @include tablet-side-padding(56px)
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-contact-form
+    padding-bottom: 44px
+
+    > .inner-wrap
+      @include mobile-side-padding(20px)
+      display: block
+
+    .form-wrap
+      padding-bottom: 40px
+      width: auto
+
+      &.success-state
+        overflow: hidden
+        visibility: hidden
+        height: 130px
+
+    .message-label
+      margin-bottom: 15px
+
+    .info-wrap
+      width: auto
+      padding-top: 32px
+      border-top: 1px solid $wgp-grey-border
+
+    .info-title
+      font-size: 20px
+      line-height: 28px
+      margin-bottom: 10px
+
+    .info-text
+      letter-spacing: 1px
+      margin-bottom: 11px
+
+    .links-wrap
+      display: flex
+      flex-wrap: wrap
+
+    .hf-phone-link, .whatsapp-skype
+      margin: 0 23px 15px 0
