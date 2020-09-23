@@ -3,7 +3,7 @@
 /*
 Theme Name: We Go Places
 Text Domain: wgp
-Version: 0.1.0
+Version: 0.1.2
 Description: Custom WordPress theme for a client website called We Go Places by Beatriz Saiani
 Author: Farias Lab E.I.
 Author URI: https://fariaslab.com/
@@ -41,11 +41,12 @@ Author URI: https://fariaslab.com/
   'layout/translation-details',
   'layout/clients-hero',
   'layout/clients-testimonials',
-  'layout/search-form',
   'layout/sidebar',
   'layout/blog-hero',
   'layout/blog-posts',
-  'layout/blog-single';
+  'layout/blog-single',
+  'layout/contact-hero',
+  'layout/contact-form';
 
 // Components
 @import
