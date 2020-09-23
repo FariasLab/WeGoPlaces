@@ -1,0 +1,145 @@
+// WGP Contact Page Hero Section
+
+.wgp-contact-hero
+  background: $wgp-grey-bg
+  overflow: visible
+
+  > .inner-wrap
+    @include desktop-side-padding(33px)
+    padding-bottom: 33px
+    position: relative
+
+  .section-title
+    margin-bottom: 11px
+    font-size: 48px
+    line-height: 63px
+
+  .alert-wrap
+    position: absolute
+    top: calc(100% - 23px)
+    left: 0
+    width: 100%
+
+  .form-alert
+    letter-spacing: 1.2px
+
+    .main-alert
+      @include desktop-side-padding(9px)
+      padding-right: 14px
+      display: inline-flex
+      position: relative
+      color: #fff
+      font-weight: 800
+      border-radius: 0 8px 8px 0
+      margin-bottom: 13px
+      max-width: calc(100% * 540 / 1240)
+
+      &:before
+        @include content-block
+        position: absolute
+        right: 100%
+        top: 0
+        width: 50vw
+        height: 100%
+        background: inherit
+
+      > *
+        position: relative
+
+    &.success .main-alert
+      background: $wgp-green
+
+    &.failure .main-alert
+      background: $wgp-orange-error
+
+  .alert-icon
+    fill: #fff
+
+    &.check-icon
+      width: 20px
+      height: 20px
+      margin: 4px 8px 4px 0
+
+    &.error-icon
+      width: 22px
+      height: 18px
+      margin: 5px 8px 5px 0
+
+  .more-alert-text
+    @include desktop-side-padding
+    padding-right: 0
+    max-width: calc(100% * 540 / 1240)
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-contact-hero
+    > .inner-wrap
+      @include tablet-side-padding(33px)
+
+    .main-alert
+      @include tablet-side-padding(9px)
+      padding-right: 14px
+
+    .more-alert-text
+      @include tablet-side-padding
+      padding-right: 0
+
+
+@media only screen and (max-width: 1024px)
+
+  .wgp-contact-hero
+    padding: 23px 0 0
+
+    .section-title
+      font-size: 32px
+      line-height: 40px
+      letter-spacing: 1.6px
+      margin-bottom: 14px
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-contact-hero
+    padding-bottom: 3px
+
+    > .inner-wrap
+      @include mobile-side-padding(21px)
+
+    .section-title
+      font-size: 12px
+      line-height: 14px
+      letter-spacing: 1px
+      font-weight: 800
+      text-transform: uppercase
+      margin-bottom: 5px
+
+    .body-text
+      font-size: 24px
+      line-height: 32px
+      letter-spacing: 0
+
+    .alert-wrap
+      top: calc(100% - 8px)
+
+    .form-alert
+      letter-spacing: 1px
+
+    .main-alert
+      @include mobile-side-padding(11px)
+      display: flex
+      border-radius: 0
+      margin-bottom: 17px
+      max-width: none
+
+    .alert-icon
+
+      &.check-icon
+        margin: 2px 8px 2px 0
+
+      &.error-icon
+        margin: 3px 8px 3px 0
+
+    .more-alert-text
+      @include mobile-side-padding
+      max-width: none
