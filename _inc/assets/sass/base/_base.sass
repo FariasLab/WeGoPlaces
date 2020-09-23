@@ -62,6 +62,9 @@ section
   display: inline-block
   position: relative
   border-radius: 8px
+  border: none
+  cursor: pointer
+  outline: none
 
   &:before
     @include content-block
@@ -81,7 +84,7 @@ section
     background-color: $wgp-green
     transition: background-color .2s
 
-  &:hover .inner-wrap
+  &:hover .inner-wrap, &:active .inner-wrap
     background-color: $wgp-green-hover
 
   .btn-text
@@ -262,6 +265,52 @@ section
     line-height: 17px
     font-weight: 800
 
+.wgp-form .form-label
+  display: block
+
+  &:not(:last-child)
+    margin-bottom: 32px
+
+  .label-text
+    font-size: 16px
+    line-height: 28px
+    letter-spacing: 1px
+    margin-bottom: 1px
+    cursor: pointer
+    transition: color .2s
+
+  &.error-label .label-text
+    color: $wgp-orange-error
+
+  .form-field
+    display: block
+    background: $wgp-grey-bg
+    border-radius: 4px
+    border: 1px solid $wgp-grey-border
+    font-family: $wgp-gilroy-font
+    font-size: 20px
+    width: 100%
+    padding: 10px 16px
+    letter-spacing: 1.2px
+    outline: none
+    transition: background-color .2s, border-color .2s
+
+    &[type=text]
+      height: 48px
+
+    &.textarea
+      max-width: 100%
+      min-width: 100%
+      min-height: 144px
+
+  &.error-label .form-field
+    background: #F6E0D9
+    border-color: $wgp-orange-error
+
+  .form-field:active, .form-field:focus
+    background: #E3F8F6
+    border-color: $wgp-green
+
 
 @media only screen and (max-width: 1239px)
 
@@ -382,3 +431,13 @@ section
 
       &:not(:last-child)
         margin-bottom: 16px
+
+  .wgp-form .form-label
+
+    &:not(:last-child)
+      margin-bottom: 27px
+
+    .label-text
+      font-size: 14px
+      letter-spacing: .88px
+      margin-bottom: 3px
