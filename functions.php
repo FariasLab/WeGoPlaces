@@ -150,6 +150,39 @@ add_action( 'elementor/frontend/before_enqueue_scripts', function() {
 }, 20 );
 
 
+// AJAX Contact Form Submission
+add_action('wp_ajax_contact_form', 'contact_form_submission');
+add_action('wp_ajax_nopriv_contact_form', 'contact_form_submission');
+function contact_form_submission() {
+    check_ajax_referer('contact_form', 'nonce');
+    $fields_with_errors = [];
+
+    foreach (['name', 'email', 'message'] as $field)
+        if (empty($_POST[$field]) || ($field == 'email' && !filter_var($_POST[$field], FILTER_VALIDATE_EMAIL)))
+            $fields_with_errors[] = $field;
+
+    if (count($fields_with_errors) > 0)
+        wp_send_json_error(['fieldsWithErrors' => $fields_with_errors], 400);
+
+    $email_message = '';
+    foreach (['name', 'company', 'email', 'phone', 'message'] as $field)
+        if (!empty($_POST[$field]))
+            $email_message .= ucfirst($field) . ": {$_POST[$field]}<br><br>";
+
+    add_filter( 'wp_mail_content_type', 'html_content_type' );
+    $sent_successfully = wp_mail('fmaiquita@gmail.com', "Message from {$_POST['name']}", $email_message);
+    remove_filter( 'wp_mail_content_type', 'html_content_type' );
+
+    if ($sent_successfully) wp_send_json_success();
+
+    wp_send_json_error(null, 400);
+}
+
+function html_content_type(){
+    return "text/html";
+}
+
+
 // Navigation Menus
 add_action( 'init', function () {
     register_nav_menus([
