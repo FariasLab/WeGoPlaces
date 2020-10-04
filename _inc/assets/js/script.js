@@ -30,9 +30,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const contactForm = document.querySelector(`[data-id="${widgetId}"] .form-wrap`),
             formElements = contactForm.elements,
             btnSubmitText = contactForm.querySelector('.btn-submit .btn-text'),
-            xhr = new XMLHttpRequest();
+            xhr = new XMLHttpRequest(),
+            hiddenAlerts = document.querySelector(`[data-id="${widgetId}"] .alert-wrap`),
+            successAlert = hiddenAlerts.querySelector('.success'),
+            clientErrorAlert = hiddenAlerts.querySelector('.client-error'),
+            serverErrorAlert = hiddenAlerts.querySelector('.server-error'),
+            heroAlerts = document.querySelector('.wgp-contact-hero .alert-wrap');
 
         function initContactForm() {
+            hiddenAlerts.remove();
             bindContactFormEvents();
         }
 
@@ -44,23 +50,46 @@ document.addEventListener('DOMContentLoaded', function() {
             contactForm.addEventListener('submit', function (e) {
                 e.preventDefault();
                 btnSubmitText.classList.add('submitting');
-                for (let i = 0; i < formElements.length; i++) formElements[i].disabled = true;
+                heroAlerts.innerHTML = '';
 
-                const formData = new FormData(e.target);
-                let formDataString = new URLSearchParams(formData).toString();
-                formDataString += '&action=contact_form&nonce=' + contactFormAdmin.nonce;
+                let formDataString = 'action=contact_form&nonce=' + contactFormAdmin.nonce;
+                for (let i = 0; i < formElements.length; i++) {
+                    formElements[i].disabled = true;
+                    if (formElements[i].name) {
+                        formElements[i].parentElement.classList.remove('error-label');
+                        formDataString += '&' + formElements[i].name + '=' + encodeURIComponent(formElements[i].value);
+                    }
+                }
 
                 xhr.onreadystatechange = function() {
                     if (this.readyState === 4) {
                         if (this.status === 200) {
-                            // if (this.resposeText === 'Member Exists') {
-                            //     newsletterText.setAttribute('data-show', 'already-subbed');
-                            // } else {
-                            //     newsletterText.setAttribute('data-show', 'success');
-                            // }
-                        } else {
-                            // newsletterText.setAttribute('data-show', 'error');
+                            if (heroAlerts) heroAlerts.appendChild(successAlert);
+                            contactForm.innerHTML = '';
                         }
+                        else {
+                            const jsonResponse = JSON.parse(this.response);
+                            btnSubmitText.classList.remove('submitting');
+                            if (jsonResponse.data && jsonResponse.data.fieldsWithErrors) {
+                                // client error
+                                for (let i = 0; i < formElements.length; i++) {
+                                    formElements[i].disabled = false;
+                                    if (jsonResponse.data.fieldsWithErrors.includes(formElements[i].name)) {
+                                        formElements[i].parentElement.classList.add('error-label');
+                                    }
+                                }
+                                heroAlerts.appendChild(clientErrorAlert);
+                            }
+                            else {
+                                // server error
+                                for (let i = 0; i < formElements.length; i++)
+                                    formElements[i].disabled = false;
+                                heroAlerts.appendChild(serverErrorAlert);
+                            }
+
+                        }
+
+                        scrollPageToElement(heroAlerts, -60);
                     }
                 };
 
@@ -204,6 +233,39 @@ document.addEventListener('DOMContentLoaded', function() {
     function targetIs(selector, event) {
         return event.target.matches(selector) || event.target.closest(selector)
     }
+
+    function scrollPageToElement(element, offsetTop = 0) {
+        const elementTop = element.getBoundingClientRect().top + document.documentElement.scrollTop + offsetTop;
+
+        if (elementTop >= document.documentElement.scrollTop)
+            document.documentElement.scrollTop = elementTop - 50;
+        else
+            document.documentElement.scrollTop = elementTop + 50;
+
+        scrollTo(document.documentElement, elementTop, 300);
+    }
+
+    function scrollTo(element, to, duration) {
+        const start = element.scrollTop,
+            change = to - start,
+            increment = 20;
+
+        let currentTime = 0;
+
+        function animateScroll() {
+            currentTime += increment;
+            element.scrollTop = Math.easeOutCirc(currentTime, start, change, duration);
+            if (currentTime < duration) {
+                setTimeout(animateScroll, increment);
+            }
+        }
+
+        animateScroll();
+    }
+
+    Math.easeOutCirc = function (t, b, c, d) {
+        return c * Math.sqrt(1 - (t=t/d-1)*t) + b;
+    };
 
     init();
 });
