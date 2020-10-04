@@ -65,6 +65,11 @@ section
   border: none
   cursor: pointer
   outline: none
+  transition: opacity .2s
+
+  &[disabled]
+    opacity: .65
+    cursor: default
 
   &:before
     @include content-block
@@ -84,7 +89,7 @@ section
     background-color: $wgp-green
     transition: background-color .2s
 
-  &:hover .inner-wrap, &:active .inner-wrap
+  &:not([disabled]):hover .inner-wrap, &:not([disabled]):active .inner-wrap
     background-color: $wgp-green-hover
 
   .btn-text
@@ -283,6 +288,9 @@ section
     color: $wgp-orange-error
 
   .form-field
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
     display: block
     background: $wgp-grey-bg
     border-radius: 4px

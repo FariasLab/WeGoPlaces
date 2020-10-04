@@ -35,7 +35,8 @@ class WGP_Contact_Form extends Widget_Base
             ['submitting_text', 'Submitting Text', Controls_Manager::TEXT],
             ['success_main_text', 'Success Main Text', Controls_Manager::TEXT],
             ['success_more_text', 'Success More Text', Controls_Manager::TEXTAREA],
-            ['error_main_text', 'Error Main Text', Controls_Manager::TEXT],
+            ['client_error_text', 'Client Error Text', Controls_Manager::TEXT],
+            ['server_error_text', 'Server Error Text', Controls_Manager::TEXT],
             ['contact_info_title', 'Contact Info Title', Controls_Manager::TEXT],
             ['contact_info_text', 'Contact Info Text', Controls_Manager::TEXTAREA]
         ]);
@@ -51,10 +52,10 @@ class WGP_Contact_Form extends Widget_Base
 
         <section class="wgp-contact-form">
             <div class="inner-wrap">
-                <form class="form-wrap wgp-form" role="search" method="post" action="">
+                <form class="form-wrap wgp-form" role="form" method="post" action="<?php echo admin_url('admin-ajax.php'); ?>">
                     <?php foreach (['name', 'company', 'email', 'phone'] as $input) {
                         $required = in_array($input, ['name', 'email']) ? 'required' : '';
-                        $type = $input ==  'phone' ? 'tel' : $input == 'email' ? 'email' : 'text'; ?>
+                        $type = $input ==  'phone' ? 'tel' : ($input == 'email' ? 'email' : 'text'); ?>
                         <label class="form-label">
                             <span class="label-text <?php echo $required; ?>"><?php echo $settings["{$input}_label"]; ?></span>
                             <input class="form-field" type="<?php echo $type; ?>" value="" name="<?php echo $input; ?>" autocomplete="off" <?php echo $required; ?>>
@@ -92,10 +93,17 @@ class WGP_Contact_Form extends Widget_Base
                     <p class="more-alert-text"><?php echo $settings['success_more_text']; ?></p>
                 </div>
 
-                <div class="form-alert error">
+                <div class="form-alert error client-error">
                     <div class="main-alert">
                         <svg class="alert-icon check-icon"><use xlink:href="#error-icon"></svg>
-                        <p class="alert-text"><?php echo $settings['error_main_text']; ?></p>
+                        <p class="alert-text"><?php echo $settings['client_error_text']; ?></p>
+                    </div>
+                </div>
+
+                <div class="form-alert error server-error">
+                    <div class="main-alert">
+                        <svg class="alert-icon check-icon"><use xlink:href="#error-icon"></svg>
+                        <p class="alert-text"><?php echo $settings['server_error_text']; ?></p>
                     </div>
                 </div>
             </div>

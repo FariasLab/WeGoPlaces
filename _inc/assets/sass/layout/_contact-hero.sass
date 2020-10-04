@@ -49,7 +49,7 @@
     &.success .main-alert
       background: $wgp-green
 
-    &.failure .main-alert
+    &.error .main-alert
       background: $wgp-orange-error
 
   .alert-icon
@@ -77,7 +77,7 @@
     > .inner-wrap
       @include tablet-side-padding(33px)
 
-    .main-alert
+    .form-alert .main-alert
       @include tablet-side-padding(9px)
       padding-right: 14px
 
@@ -120,17 +120,19 @@
       letter-spacing: 0
 
     .alert-wrap
-      top: calc(100% - 8px)
+      top: calc(100% - 23px)
 
     .form-alert
       letter-spacing: 1px
 
-    .main-alert
-      @include mobile-side-padding(11px)
-      display: flex
-      border-radius: 0
-      margin-bottom: 17px
-      max-width: none
+      .main-alert
+        @include mobile-side-padding(11px)
+        padding-right: 14px
+        display: flex
+        border-radius: 0
+        margin-bottom: 17px
+        width: 100%
+        max-width: none
 
     .alert-icon
 

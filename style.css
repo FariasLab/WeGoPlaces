@@ -200,6 +200,11 @@ section > .inner-wrap {
   border: none;
   cursor: pointer;
   outline: none;
+  transition: opacity 0.2s;
+}
+.btn-primary[disabled] {
+  opacity: 0.65;
+  cursor: default;
 }
 .btn-primary:before {
   display: block;
@@ -222,7 +227,7 @@ section > .inner-wrap {
   background-color: #00c2b4;
   transition: background-color 0.2s;
 }
-.btn-primary:hover .inner-wrap, .btn-primary:active .inner-wrap {
+.btn-primary:not([disabled]):hover .inner-wrap, .btn-primary:not([disabled]):active .inner-wrap {
   background-color: #009B90;
 }
 .btn-primary .btn-text {
@@ -433,6 +438,9 @@ section > .inner-wrap {
   color: #EC6233;
 }
 .wgp-form .form-label .form-field {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   display: block;
   background: #F6F4EF;
   border-radius: 4px;
@@ -2679,7 +2687,7 @@ section > .inner-wrap {
 .wgp-contact-hero .form-alert.success .main-alert {
   background: #00c2b4;
 }
-.wgp-contact-hero .form-alert.failure .main-alert {
+.wgp-contact-hero .form-alert.error .main-alert {
   background: #EC6233;
 }
 .wgp-contact-hero .alert-icon {
@@ -2705,7 +2713,7 @@ section > .inner-wrap {
   .wgp-contact-hero > .inner-wrap {
     padding: 33px calc(100% * 48 / 768);
   }
-  .wgp-contact-hero .main-alert {
+  .wgp-contact-hero .form-alert .main-alert {
     padding: 9px calc(100% * 48 / 768);
     padding-right: 14px;
   }
@@ -2746,16 +2754,18 @@ section > .inner-wrap {
     letter-spacing: 0;
   }
   .wgp-contact-hero .alert-wrap {
-    top: calc(100% - 8px);
+    top: calc(100% - 23px);
   }
   .wgp-contact-hero .form-alert {
     letter-spacing: 1px;
   }
-  .wgp-contact-hero .main-alert {
+  .wgp-contact-hero .form-alert .main-alert {
     padding: 11px calc(100% * 20 / 375);
+    padding-right: 14px;
     display: flex;
     border-radius: 0;
     margin-bottom: 17px;
+    width: 100%;
     max-width: none;
   }
   .wgp-contact-hero .alert-icon.check-icon {
@@ -2780,6 +2790,7 @@ section > .inner-wrap {
 .wgp-contact-form .form-wrap {
   width: calc(100% * 360 / 1080);
   min-width: 288px;
+  min-height: 97px;
 }
 .wgp-contact-form .message-label {
   margin-bottom: 23px;
