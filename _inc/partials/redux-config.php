@@ -2,9 +2,14 @@
 
 if ( ! class_exists( 'Redux' ) ) return;
 
-Redux::disable_demo();
-
 $opt_name = 'WGP';
+$pages = get_pages();
+$page_options = [];
+$home_testimonials_options = [];
+
+foreach ($pages as $page) $page_options[$page->ID] = $page->post_title;
+
+Redux::disable_demo();
 
 Redux::set_args( $opt_name, [
     'display_name' => 'We Go Places Options',
@@ -13,9 +18,7 @@ Redux::set_args( $opt_name, [
     'dev_mode' => false
 ] );
 
-$pages = get_pages();
-$page_options = [];
-foreach ($pages as $page) $page_options[$page->ID] = $page->post_title;
+
 
 
 // General Section
@@ -151,12 +154,25 @@ for ($i = 1; $i <= 6; $i++) {
         'type' => 'raw',
         'content' => '<div style="height: 30px"></div>'
     ];
+
+    $home_testimonials_options["$i"] = "$i";
 }
 
 $testimonial_fields[] = [
     'id' => 'testimonials_section_end',
     'type' => 'section',
     'indent' => false
+];
+
+$testimonial_fields[] = [
+    'id' => 'home_testimonials',
+    'type' => 'select',
+    'multi' => true,
+    'title'  => esc_html__( 'Home Testimonials', 'wgp' ),
+    'desc'  => esc_html__( 'Select which testimonials to show in the Home Page', 'wgp' ),
+    'options' => $home_testimonials_options,
+    'sortable' => true,
+    'default' => ['5', '4', '1']
 ];
 
 Redux::set_section( $opt_name, [
