@@ -135,11 +135,7 @@ add_action( 'wp_enqueue_scripts', function () {
 // Enqueue JS
 add_action( 'elementor/frontend/before_enqueue_scripts', function() {
     $theme_version = wp_get_theme()->get( 'Version' );
-    wp_deregister_script( 'swiper');
-    wp_register_script('swiper', get_template_directory_uri() . '/_inc/assets/js/swiper.min.js', [], '4.5.1', true);
-    wp_register_script('wgp-script', get_template_directory_uri() . '/_inc/assets/js/script.js', [
-        'swiper'
-    ], $theme_version, true);
+    wp_register_script('wgp-script', get_template_directory_uri() . '/_inc/assets/js/script.js', [], $theme_version, true);
 
     wp_localize_script('wgp-script', 'contactFormAdmin', [
         'ajaxUrl' => admin_url('admin-ajax.php'),
