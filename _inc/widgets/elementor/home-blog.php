@@ -61,7 +61,7 @@ class WGP_Home_Blog extends Widget_Base
 
                             <li class="posts-list-item">
                                 <h3 class="post-title"><?php the_title(); ?></h3>
-                                <p class="post-date"><?php the_date('M Y'); ?></p>
+                                <p class="post-date"><?php echo get_the_date('M Y'); ?></p>
                                 <a href="<?php the_permalink(); ?>" class="more-link">
                                     <span class="link-text"><?php echo $settings['read_link_text']; ?></span>
                                     <svg class="arrow-icon">
