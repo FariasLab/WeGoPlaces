@@ -258,6 +258,11 @@ Redux::set_section( $opt_name, [
             'title' => esc_html__( 'Blog Tagline', 'wgp' ),
             'subtitle' => esc_html__( 'Ex: Interesting tips for learning a new language', 'wgp' )
         ], [
+            'id' => 'btn_continue_text',
+            'type' => 'text',
+            'title' => esc_html__( 'Continue Button Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: Continue', 'wgp' )
+        ], [
             'id' => 'all_posts_text',
             'type' => 'text',
             'title' => esc_html__( 'All Posts Button Text', 'wgp' ),
@@ -272,6 +277,16 @@ Redux::set_section( $opt_name, [
             'type' => 'text',
             'title' => esc_html__( 'Popular Posts Title', 'wgp' ),
             'subtitle' => esc_html__( 'Ex: Popular Posts', 'wgp' )
+        ], [
+            'id' => 'results_for_text',
+            'type' => 'text',
+            'title' => esc_html__( 'Plural Result Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: results for', 'wgp' )
+        ], [
+            'id' => 'result_for_text',
+            'type' => 'text',
+            'title' => esc_html__( 'Singular Result Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: result for', 'wgp' )
         ]
     ]
 ]);
