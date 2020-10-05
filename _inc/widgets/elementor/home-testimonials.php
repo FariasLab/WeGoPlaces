@@ -32,12 +32,16 @@ class WGP_Home_Testimonials extends Widget_Base
 
     protected function render() {
 
-        global $WGP; ?>
+        global $WGP;
+
+        //print_r($WGP['home_testimonials'], false);
+
+        ?>
 
         <section class="wgp-home-testimonials">
             <div class="inner-wrap">
                 <ul class="testimonial-list">
-                     <?php for ($i = 1; $i <= 3; $i++) { ?>
+                     <?php foreach ($WGP['home_testimonials'] as $i) { ?>
                          <li class="testimonial-list-item">
                              <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/icon-quote.svg" class="icon-quote">
                              <div class="testimonial-text">
