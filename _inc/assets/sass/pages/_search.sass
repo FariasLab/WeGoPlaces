@@ -1,0 +1,51 @@
+// WGP Search Pages
+
+.wgp-search-results
+  padding-bottom: 37px
+
+  > .inner-wrap
+    @include desktop-side-padding(27px)
+
+  .main-column-wrap
+    max-width: 680px
+
+  .back-link
+    margin-bottom: 28px
+
+  .search-form
+    margin-bottom: 33px
+
+  .results-title
+    letter-spacing: 1.2px
+    padding-bottom: 21px
+
+    &.zero-found .found-posts
+      font-weight: 800
+      color: #D81920
+
+  .search-term
+    font-weight: 800
+
+    &:before, &:after
+      content: '"'
+
+
+@media only screen and (max-width: 1239px)
+
+  .wgp-search-results > .inner-wrap
+    @include tablet-side-padding(27px)
+
+
+@media only screen and (max-width: 767px)
+
+  .wgp-search-results
+    padding-bottom: 15px
+
+    > .inner-wrap
+      @include mobile-side-padding(21px)
+
+    .results-title
+      padding-bottom: 25px
+
+      &:not(.zero-found)
+        border-bottom: 1px solid $wgp-grey-bg
