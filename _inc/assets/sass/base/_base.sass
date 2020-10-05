@@ -22,6 +22,10 @@ img, svg
   display: flex
   flex-direction: column
 
+.site-footer-wrap
+  position: relative
+  z-index: 2
+
 section
   overflow: hidden
 
@@ -60,6 +64,7 @@ section
 
 .btn-primary
   display: inline-block
+  text-decoration: none
   position: relative
   border-radius: 8px
   border: none
@@ -169,7 +174,8 @@ section
   height: 80px
   border-radius: 50%
   overflow: hidden
-  background: $wgp-avatar-bg
+  //background: $wgp-avatar-bg
+  background: $wgp-grey-bg
   margin-right: 12px
 
   .avatar-img
