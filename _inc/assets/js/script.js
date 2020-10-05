@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function initFixedFooter() {
         const heroBtnQuote = document.querySelector('.site-main .btn-ask-quote'),
-            fixedFooter = document.querySelector('.fixed-footer'),
+            fixedFooter = document.querySelector('.wgp-fixed-footer'),
             footerBtnQuote = fixedFooter.querySelector('.btn-ask-quote'),
             consentSection = fixedFooter.querySelector('.consent-section'),
 
@@ -43,16 +43,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function bindFixedFooterEvents() {
             if (heroBtnQuote) {
-                // console.log({
-                //     'heroBtnTop+Height': heroBtnQuote.scrollTop + heroBtnQuote.offsetHeight
-                // });
                 window.addEventListener('scroll', function () {
-                    // console.log('pageY', window.pageYOffset);
-
-                    // if (heroBtnQuote.scrollTop + heroBtnQuote.offsetHeight < document.documentElement.scrollTop)
-                    // if (heroBtnQuote.getBoundingClientRect().top + heroBtnQuote.offsetHeight < window.pageYOffset)
                     if (heroBtnQuote.getBoundingClientRect().top + heroBtnQuote.offsetHeight < 0)
-                    // if (heroBtnQuote.getBoundingClientRect().top + heroBtnQuote.offsetHeight < document.documentElement.scrollTop)
                         footerBtnQuote.classList.add('show');
                     else footerBtnQuote.classList.remove('show');
                 });
