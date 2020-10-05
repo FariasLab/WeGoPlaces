@@ -48,6 +48,12 @@ Redux::set_section( $opt_name, [
             'id' => 'quote_section_end',
             'type' => 'section',
             'indent' => false
+        ], [
+            'id' => 'cookie_consent_text',
+            'type' => 'textarea',
+            'rows' => 3,
+            'title' => esc_html__( 'Cookie Consent Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: By using our website you agree to our use of cookies to deliver a better experience', 'wgp' ),
         ]
     ]
 ]);
@@ -266,6 +272,40 @@ Redux::set_section( $opt_name, [
             'type' => 'text',
             'title' => esc_html__( 'Popular Posts Title', 'wgp' ),
             'subtitle' => esc_html__( 'Ex: Popular Posts', 'wgp' )
+        ]
+    ]
+]);
+
+
+// Error 404 Section
+
+Redux::set_section( $opt_name, [
+    'title'  => esc_html__( 'Error 404', 'wgp' ),
+    'desc'  => esc_html__( 'Edit content from Error 404 pages in one place here.', 'wgp' ),
+    'id'     => 'error_404',
+    'fields' => [
+        [
+            'id' => 'main_text_404',
+            'type' => 'textarea',
+            'rows' => 2,
+            'title' => esc_html__( 'Error 404 Main Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: The page you\'re looking for could not be found (error 404)', 'wgp' )
+        ], [
+            'id' => 'more_text_404',
+            'type' => 'text',
+            'title' => esc_html__( 'Error 404 More Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: Let us guide you back. Go back to the', 'wgp' )
+        ], [
+            'id' => 'link_text_404',
+            'type' => 'text',
+            'title' => esc_html__( 'Error 404 Link Text', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: homepage', 'wgp' )
+        ], [
+            'id' => 'link_id_404',
+            'type' => 'select',
+            'title' => esc_html__( 'Error 404 Link Page', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: Home', 'wgp' ),
+            'options' => $page_options
         ]
     ]
 ]);
