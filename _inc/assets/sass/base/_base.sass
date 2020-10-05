@@ -325,6 +325,62 @@ section
     background: #E3F8F6
     border-color: $wgp-green
 
+.wgp-posts-loop
+
+  .author-avatar
+    position: absolute
+    width: 50px
+    height: 50px
+    border-radius: 50%
+    overflow: hidden
+    background: $wgp-avatar-bg
+
+  .avatar-img
+    max-width: 100%
+
+  .post-title
+    font-weight: 300
+
+  .title-link
+    text-decoration: none
+
+  .post-date
+    font-size: 16px
+    line-height: 20px
+    letter-spacing: 1px
+
+  .post-excerpt
+    letter-spacing: 1.2px
+
+  .more-link
+    text-decoration: none
+    color: $wgp-green
+
+    .arrow-icon
+      fill: $wgp-green
+
+    &:hover, &:active
+      color: $wgp-green-hover
+
+      .arrow-icon
+        fill: $wgp-green-hover
+
+.back-link
+  color: $wgp-green
+  text-decoration: none
+  margin-bottom: 27px
+
+  .arrow-icon
+    transform: rotate(180deg)
+    margin-right: 8px
+    fill: $wgp-green
+
+  &:hover, &:active
+    color: $wgp-green-hover
+
+    .arrow-icon
+      fill: $wgp-green-hover
+
 
 @media only screen and (max-width: 1239px)
 
@@ -455,3 +511,18 @@ section
       font-size: 14px
       letter-spacing: .88px
       margin-bottom: 3px
+
+  .wgp-posts-loop
+
+    .post-date
+      font-size: 14px
+      line-height: 18px
+      letter-spacing: .8px
+
+    .post-excerpt
+      font-size: 16px
+      line-height: 24px
+      letter-spacing: 1px
+
+  .back-link
+    margin-bottom: 20px

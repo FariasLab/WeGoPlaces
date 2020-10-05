@@ -27,7 +27,6 @@ class WGP_Blog_Posts extends Widget_Base
 
     protected function _register_controls() {
         register_common_controls($this, [
-            ['button_text', 'Button Text', Controls_Manager::TEXT],
             ['popular_posts_title', 'Popular Posts Title', Controls_Manager::TEXT]
         ]);
     }
@@ -44,7 +43,7 @@ class WGP_Blog_Posts extends Widget_Base
             get_template_part('_inc/partials/icon-svg-symbols');
         } ?>
 
-        <section class="wgp-blog-posts">
+        <section class="wgp-blog-posts wgp-posts-loop">
             <div class="inner-wrap">
                 <?php get_search_form();
 
@@ -84,27 +83,9 @@ class WGP_Blog_Posts extends Widget_Base
                         <?php if ($posts_query->have_posts()) {
                             while ($posts_query->have_posts()) {
                                 $posts_query->the_post();
-                                $author_id = get_the_author_meta('ID');
-                                $avatar_url = get_wp_user_avatar_src($author_id, 'wgp_160x160'); ?>
-
-                                <div class="post-block-item">
-                                    <div class="author-avatar">
-                                        <img src="<?php echo $avatar_url; ?>" class="avatar-img">
-                                    </div>
-                                    <h2 class="post-title">
-                                        <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-                                    </h2>
-                                    <p class="post-date"><?php echo get_the_date('M Y'); ?></p>
-                                    <p class="post-excerpt"><?php the_excerpt(); ?></p>
-                                    <a href="<?php the_permalink(); ?>" class="more-link">
-                                        <span class="link-text"><?php echo $settings['button_text']; ?></span>
-                                        <svg class="arrow-icon"><use xlink:href="#arrow-icon"></svg>
-                                    </a>
-                                </div>
-
-                            <?php }
+                                get_template_part('_inc/partials/post-block-item');
+                            }
                         } ?>
-
                     </div>
 
                     <?php get_sidebar(); ?>

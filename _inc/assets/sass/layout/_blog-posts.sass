@@ -9,37 +9,6 @@
     > .search-form
       display: none
 
-  .author-avatar
-    position: absolute
-    width: 50px
-    height: 50px
-    border-radius: 50%
-    overflow: hidden
-    background: $wgp-avatar-bg
-
-  .post-title
-    font-weight: 300
-
-  .post-date
-    font-size: 16px
-    line-height: 20px
-    letter-spacing: 1px
-
-  .post-excerpt
-    letter-spacing: 1.2px
-
-  .more-link
-    color: $wgp-green
-
-    .arrow-icon
-      fill: $wgp-green
-
-    &:hover, &:active
-      color: $wgp-green-hover
-
-      .arrow-icon
-        fill: $wgp-green-hover
-
   .latest-post
     display: flex
     margin-bottom: 60px
@@ -53,7 +22,8 @@
     .thumbnail-link
       display: block
       height: 202px
-      background: $wgp-avatar-bg
+      //background: $wgp-avatar-bg
+      background: $wgp-grey-bg
       border-radius: 8px
       overflow: hidden
 
@@ -87,28 +57,6 @@
     .other-recent-posts
       width: calc(100% * 680 / 1080)
 
-    .post-block-item
-      padding: 33px 40px 37px
-      position: relative
-      border: 1px solid $wgp-grey-border
-      border-radius: 8px
-      margin-bottom: 32px
-
-    .author-avatar
-      left: -25px
-      top: 25px
-
-    .post-title
-      font-size: 32px
-      line-height: 40px
-      margin-bottom: 10px
-
-    .post-date
-      margin-bottom: 8px
-
-    .post-excerpt
-      margin-bottom: 6px
-
 
 @media only screen and (max-width: 1239px)
 
@@ -129,16 +77,6 @@
       > .search-form
         display: block
         margin-bottom: 40px
-
-    .post-date
-      font-size: 14px
-      line-height: 18px
-      letter-spacing: .8px
-
-    .post-excerpt
-      font-size: 16px
-      line-height: 24px
-      letter-spacing: 1px
 
     .latest-post
       display: block
@@ -181,25 +119,3 @@
 
       .other-recent-posts
         width: auto
-
-      .post-block-item
-        padding: 17px 0 20px
-        border: none
-        border-bottom: 1px solid $wgp-grey-bg
-        border-radius: 0
-        margin-bottom: 0
-
-      .author-avatar
-        display: none
-
-      .post-title
-        font-size: 24px
-        line-height: 32px
-        letter-spacing: 0
-        margin-bottom: 4px
-
-      .post-date
-        margin-bottom: 11px
-
-      .post-excerpt
-        margin-bottom: 14px

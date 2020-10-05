@@ -1,0 +1,48 @@
+// Post Block Item
+
+.post-block-item
+  padding: 33px 40px 37px
+  position: relative
+  border: 1px solid $wgp-grey-border
+  border-radius: 8px
+  margin-bottom: 32px
+
+  .author-avatar
+    left: -25px
+    top: 25px
+
+  .post-title
+    font-size: 32px
+    line-height: 40px
+    margin-bottom: 10px
+
+  .post-date
+    margin-bottom: 8px
+
+  .post-excerpt
+    margin-bottom: 6px
+
+
+@media only screen and (max-width: 767px)
+
+  .post-block-item
+    padding: 17px 0 20px
+    border: none
+    border-bottom: 1px solid $wgp-grey-bg
+    border-radius: 0
+    margin-bottom: 0
+
+    .author-avatar
+      display: none
+
+    .post-title
+      font-size: 24px
+      line-height: 32px
+      letter-spacing: 0
+      margin-bottom: 4px
+
+    .post-date
+      margin-bottom: 11px
+
+    .post-excerpt
+      margin-bottom: 14px
