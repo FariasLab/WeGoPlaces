@@ -87,6 +87,8 @@ class WGP_About_Team extends Widget_Base
                                         if ($img_id) {
                                             $img_src = wp_get_attachment_image_src($img_id, 'wgp_160x160')[0]; ?>
                                             <img src="<?php echo $img_src; ?>" class="avatar-img">
+                                        <?php } else { ?>
+                                            <img src="<?php bloginfo('template_url'); ?>/_inc/assets/img/icon-avatar.svg" class="avatar-img">
                                         <?php } ?>
                                     </div>
                                     <div class="bio-wrap">
