@@ -1,0 +1,95 @@
+// Fixed Footer
+
+.fixed-footer
+  position: fixed
+  z-index: 1
+  width: 100%
+  left: 0
+  bottom: 0
+  transform: translateY(100%)
+  transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+
+  .btn-ask-quote
+    width: 100%
+    position: absolute
+    left: 0
+    bottom: 100%
+    border-radius: 0
+    transform: translateY(100%)
+    transition: transform .3s cubic-bezier(0.075, 0.82, 0.165, 1)
+
+    &:before
+      display: none
+
+    .inner-wrap
+      border-radius: 0
+
+  &.show, .btn-ask-quote.show
+    transform: translateY(0)
+
+  .consent-section
+    position: relative
+    background: $wgp-darkgrey
+    font-weight: 800
+
+  .consent-wrap
+    @include desktop-side-padding(6px)
+
+  .btn-close-consent
+    display: inline
+    margin-right: 2px
+
+    .close-icon
+      display: inline-block
+      margin-bottom: 4px
+      width: 10px
+      height: 10px
+      fill: $wgp-green
+      transition: fill .2s
+
+    &:hover .close-icon, &:active .close-icon
+      fill: $wgp-green-hover
+
+  .consent-text
+    display: inline
+    color: #fff
+    font-size: 16px
+    line-height: 28px
+    letter-spacing: 1px
+    margin-right: 1px
+
+  .btn-ok-consent
+    display: inline
+    font-size: 14px
+    line-height: 17px
+    letter-spacing: 1.2px
+    margin: 5.5px 0
+    color: $wgp-green
+    transition: color .2s
+    text-transform: uppercase
+    text-decoration: none
+
+    &:hover, &:active
+      color: $wgp-green-hover
+
+
+@media only screen and (max-width: 1239px)
+
+  .fixed-footer .consent-wrap
+    @include tablet-side-padding(6px)
+
+
+@media only screen and (max-width: 767px)
+
+  .fixed-footer
+
+    .consent-wrap
+      @include mobile-side-padding(6px)
+
+    .btn-close-consent
+      display: none
+
+    .consent-text
+      font-size: 14px
+      line-height: 18px
+      letter-spacing: .8px

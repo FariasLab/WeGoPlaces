@@ -13,17 +13,97 @@ document.addEventListener('DOMContentLoaded', function() {
         window.initContactFormById = initContactFormById;
         window.dispatchEvent(new CustomEvent('contactFormReadyToInit'));
 
-        /*
-        new Swiper('.logos-slider', {
-            slidesPerView: 6,
-            speed: 500,
-            loop: true,
-            grabCursor: true,
-            breakpoints: {
-                767:
+        // Fixed Footer
+        initFixedFooter();
+    }
+
+    function initFixedFooter() {
+        const heroBtnQuote = document.querySelector('.site-main .btn-ask-quote'),
+            fixedFooter = document.querySelector('.fixed-footer'),
+            footerBtnQuote = fixedFooter.querySelector('.btn-ask-quote'),
+            consentSection = fixedFooter.querySelector('.consent-section'),
+
+            dropCookie = true, // false to disable cookie and do some testing
+            cookieDuration = 365, // number of days before cookie expires
+            cookieName = 'complianceCookie', //Name of our cookie
+            cookieValue = 'on'; // Value of cookie;
+
+
+
+        function initFixedFooter() {
+            if (userHasConsented() && !heroBtnQuote) {
+                fixedFooter.remove();
+                return;
             }
-        });
-         */
+            if (!heroBtnQuote) footerBtnQuote.remove();
+            else if (userHasConsented()) consentSection.remove();
+            fixedFooter.classList.add('show');
+            bindFixedFooterEvents();
+        }
+
+        function bindFixedFooterEvents() {
+            if (heroBtnQuote) {
+                // console.log({
+                //     'heroBtnTop+Height': heroBtnQuote.scrollTop + heroBtnQuote.offsetHeight
+                // });
+                window.addEventListener('scroll', function () {
+                    // console.log('pageY', window.pageYOffset);
+
+                    // if (heroBtnQuote.scrollTop + heroBtnQuote.offsetHeight < document.documentElement.scrollTop)
+                    // if (heroBtnQuote.getBoundingClientRect().top + heroBtnQuote.offsetHeight < window.pageYOffset)
+                    if (heroBtnQuote.getBoundingClientRect().top + heroBtnQuote.offsetHeight < 0)
+                    // if (heroBtnQuote.getBoundingClientRect().top + heroBtnQuote.offsetHeight < document.documentElement.scrollTop)
+                        footerBtnQuote.classList.add('show');
+                    else footerBtnQuote.classList.remove('show');
+                });
+            }
+            if (!userHasConsented()) {
+                function closeConsent(e) {
+                    if (targetIs('.btn-close-consent, .btn-ok-consent', e)) {
+                        e.preventDefault();
+                        createCookie(cookieName, cookieValue, cookieDuration);
+                        fixedFooter.classList.remove('show');
+                        consentSection.removeEventListener('click', closeConsent);
+                    }
+                }
+                consentSection.addEventListener('click', closeConsent);
+            }
+        }
+
+        function userHasConsented() {
+            return checkCookie(cookieName) === cookieValue;
+        }
+
+        function createCookie(name, value, days) {
+            let expires;
+            if (days) {
+                const date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires="+date.toGMTString();
+            }
+            else expires = "";
+            if (dropCookie) {
+                document.cookie = name+"="+value+expires+"; path=/";
+            }
+        }
+
+        function checkCookie(name) {
+            const nameEQ = name + "=",
+                ca = document.cookie.split(';');
+
+            for (let i = 0; i < ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) ===' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        function eraseCookie(name) {
+            createCookie(name,"",-1);
+        }
+
+        initFixedFooter();
     }
 
     function initContactFormById(widgetId) {
