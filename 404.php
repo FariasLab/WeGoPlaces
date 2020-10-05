@@ -2,6 +2,17 @@
 
 global $WGP;
 
+// Force 404 if necessary
+if ( ! is_404() ) {
+    status_header( 404 );
+    nocache_headers();
+    if ( isset( $the_query ) ) {
+        $the_query->is_404 = true;
+    } else{
+        $wp_query->is_404 = true;
+    }
+}
+
 get_header(); ?>
 
 <section class="site-main wgp-404">
