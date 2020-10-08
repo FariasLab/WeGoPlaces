@@ -54,6 +54,12 @@ Redux::set_section( $opt_name, [
             'rows' => 3,
             'title' => esc_html__( 'Cookie Consent Text', 'wgp' ),
             'subtitle' => esc_html__( 'Ex: By using our website you agree to our use of cookies to deliver a better experience', 'wgp' ),
+        ], [
+            'id' => 'contact_form_recipient',
+            'type' => 'text',
+            'title' => esc_html__( 'Contact Form Recipient Email', 'wgp' ),
+            'subtitle' => esc_html__( 'Ex: info@wegoplaces.pt', 'wgp' ),
+            'validate' => ['email']
         ]
     ]
 ]);

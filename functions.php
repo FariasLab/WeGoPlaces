@@ -151,6 +151,7 @@ add_action('wp_ajax_contact_form', 'contact_form_submission');
 add_action('wp_ajax_nopriv_contact_form', 'contact_form_submission');
 function contact_form_submission() {
     check_ajax_referer('contact_form', 'nonce');
+    global $WGP;
     $fields_with_errors = [];
 
     foreach (['name', 'email', 'message'] as $field)
@@ -166,7 +167,7 @@ function contact_form_submission() {
             $email_message .= ucfirst($field) . ": {$_POST[$field]}<br><br>";
 
     add_filter( 'wp_mail_content_type', 'html_content_type' );
-    $sent_successfully = wp_mail('fmaiquita@gmail.com', "Message from {$_POST['name']}", $email_message);
+    $sent_successfully = wp_mail($WGP['contact_form_recipient'], "Message from {$_POST['name']}", $email_message);
     remove_filter( 'wp_mail_content_type', 'html_content_type' );
 
     if ($sent_successfully) wp_send_json_success();
