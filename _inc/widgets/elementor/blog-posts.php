@@ -63,7 +63,7 @@ class WGP_Blog_Posts extends Widget_Base
                         </div>
                         <div class="text-wrap">
                             <h2 class="post-title">
-                                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                <a href="<?php the_permalink(); ?>"><?php echo get_the_title(); ?></a>
                             </h2>
                             <p class="post-date"><?php the_date('M Y'); ?></p>
                             <p class="post-excerpt"><?php the_excerpt(); ?></p>

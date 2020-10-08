@@ -25,7 +25,7 @@ get_header(); ?>
                         </div>
                     <?php } ?>
 
-                    <h2 class="post-title"><?php the_title(); ?></h2>
+                    <h2 class="post-title"><?php echo get_the_title(); ?></h2>
                     <div class="post-meta">
                         <?php if ($avatar_url) { ?>
                             <div class="avatar-wrap">
