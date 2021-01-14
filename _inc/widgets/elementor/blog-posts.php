@@ -36,7 +36,7 @@ class WGP_Blog_Posts extends Widget_Base
         $settings = $this->get_settings_for_display();
         $posts_query = new WP_Query([
             'post_type' => 'post',
-            'posts_per_page' => 5
+            'posts_per_page' => 2
         ]);
 
         if ( Plugin::$instance->editor->is_edit_mode() || Plugin::$instance->preview->is_preview_mode() ) {
@@ -83,8 +83,17 @@ class WGP_Blog_Posts extends Widget_Base
                         <?php if ($posts_query->have_posts()) {
                             while ($posts_query->have_posts()) {
                                 $posts_query->the_post();
-                                get_template_part('_inc/partials/post-block-item');
-                            }
+                                get_template_part('_inc/partials/post-block-item'); ?>
+
+                                <div class="pagination-wrap">
+                                    Pagination will go here
+                                    <?php echo get_the_posts_pagination([
+                                        'mid_size'  => 2,
+                                        'prev_text' => __( 'Back', 'wgp' ),
+                                        'next_text' => __( 'Onward', 'wgp' ),
+                                    ]); ?>
+                                </div>
+                            <?php }
                         } ?>
                     </div>
 
